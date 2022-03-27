@@ -5,278 +5,68 @@
 	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
 	<link rel="shortcut icon" href="/img/logo_miccall.png">
 	
-			    <title>
+		    <title>
     Hexo
     </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/css/mic_main.css" />
-    <link rel="stylesheet" href="/css/dropdownMenu.css" />
-    <meta name="keywords" content="miccall" />
     
-    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	 
-    <noscript>
-        <link rel="stylesheet" href="/css/noscript.css" />
-    </noscript>
-    <style type="text/css">
-        body:before {
-          content: ' ';
-          position: fixed;
-          top: 0;
-          background: url('/img/bg.jpg') center 0 no-repeat;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background-size: cover; 
-        }
-    </style>
+<link rel="stylesheet" href="/css/mic_gallery.css" />
 
-			    
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.scrollex.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/util.js"></script>
-    <script src="/js/main.js"></script>
 	
 <meta name="generator" content="Hexo 6.1.0"></head>
     
-		
-<!-- Layouts -->
+        <!-- Single Gallery Page -->
+        
+<body class="is-loading-0 is-loading-1 is-loading-2">
+		<!-- Main -->
+			<div id="gallery_main">
 
-    <!-- Single Links Page -->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/css/demo.css">
-<style type="text/css">
-    .our-team {
-        padding: 30px 0 40px;
-        background: #f7f5ec;
-        text-align: center;
-        overflow: hidden;
-        position: relative;
-    }
+				<!-- Header -->
+					<header id="gallery_header">
+						<h1>Hexo</h1>
+						<p>Just another fine responsive    author : <a href="/" style="border-bottom: none;">John Doe</a></p>
+						<ul class="gallery_icons">
+		                    
+						</ul>
+					</header>
 
-    .our-team .pic {
-        display: inline-block;
-        width: 130px;
-        height: 130px;
-        margin-bottom: 50px;
-        z-index: 1;
-        position: relative;
-    }
+				<!-- Thumbnail -->
+					<section id="gallery_thumbnails">
+		           
+		                					
+								<article>
+									<a class="thumbnail" target="_blank" rel="noopener" href="https://wx2.sinaimg.cn/mw690/008srJVCgy1h0ox6nidu6j30z40kutau.jpg" data-position="left center"><img src="https://wx2.sinaimg.cn/mw690/008srJVCgy1h0ox6nidu6j30z40kutau.jpg" alt="" /></a>
+									<h2>重庆</h2>
+									<p>过江索道</p>
+								</article>
+			                					
+								<article>
+									<a class="thumbnail" target="_blank" rel="noopener" href="https://wx1.sinaimg.cn/mw690/008srJVCgy1h0ox6n0047j30rs0ku0u5.jpg" data-position="left center"><img src="https://wx1.sinaimg.cn/mw690/008srJVCgy1h0ox6n0047j30rs0ku0u5.jpg" alt="" /></a>
+									<h2>宜昌</h2>
+									<p>垂钓夕阳</p>
+								</article>
+			                
+			            
 
-    .our-team .pic:before {
-        content: "";
-        width: 100%;
-        height: 0;
-        border-radius: 50%;
-        background: #000000;
-        position: absolute;
-        bottom: 135%;
-        right: 0;
-        left: 0;
-        opacity: 0.2;
-        transform: scale(3);
-        transition: all 0.3s linear 0s;
-    }
+					</section>
 
-    .our-team:hover .pic:before {
-        height: 100%;
-    }
-
-    .our-team .pic:after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background: #000000;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
-
-    .our-team .pic img {
-        width: 100%;
-        height: auto;
-        border-radius: 50%;
-        transform: scale(1);
-        transition: all 0.9s ease 0s;
-    }
-
-    .our-team:hover .pic img {
-        box-shadow: 0 0 0 14px #f7f5ec;
-        transform: scale(0.7);
-    }
-
-    .our-team .team-content {
-        margin-bottom: 30px;
-    }
-
-    .our-team .title {
-        font-size: 22px;
-        font-weight: 700;
-        color: #4e5052;
-        letter-spacing: 1px;
-        text-transform: capitalize;
-        margin-bottom: 5px;
-    }
-
-    .our-team .post {
-        display: block;
-        font-size: 15px;
-        color: #4e5052;
-        text-transform: capitalize;
-    }
-
-    .our-team .social {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        background: #000;
-        position: absolute;
-        bottom: -100px;
-        left: 0;
-        transition: all 0.5s ease 0s;
-    }
-
-    .our-team:hover .social {
-        bottom: 0;
-    }
-
-    .our-team .social li {
-        display: inline-block;
-    }
-
-    .our-team .social li a {
-        display: block;
-        padding: 10px;
-        font-size: 17px;
-        color: #fff;
-        transition: all 0.3s ease 0s;
-    }
-
-    .our-team .social li a:hover {
-        color: #110;
-        background: #f7f5ec;
-    }
-
-    @media only screen and (max-width: 990px) {
-        .our-team {
-            margin-bottom: 30px;
-        }
-    }</style>
-
-<body class="is-loading">
-    <!-- Wrapper 外包 s-->
-    <div id="wrapper" class="fade-in">
-        <!-- Intro 头部显示 s -->
-        <!-- Intro 头部显示 e -->
-        <!-- Header 头部logo start -->
-        <header id="header">
-    <a href="/" class="logo">TOP</a>
-</header>
-            <!-- Nav 导航条 start -->
-            <nav id="nav" class="special" >
-            <ul class="menu links" >
-			<!-- Homepage  主页  --> 
-			<li >
-	            <a href="/" rel="nofollow">主页</a>
-	        </li>
-			<!-- categories_name  分类   --> 
-	        
-	        <li class="active">
-	            <a href="#s1">分类</a>
-	                    <ul class="submenu">
-	                        <li>
-	                        <a class="category-link" href="/categories/java/">java</a></li><li><a class="category-link" href="/categories/other/">other</a>
-	                    </ul>
-	        </li>
-	        
-	        <!-- archives  归档   --> 
-	        
-	        
-		        <!-- Pages 自定义   -->
-		        
-		        <li>
-		            <a href="/about/" title="关于本人">
-		                关于本人
-		            </a>
-		        </li>
-		        
-		        <li>
-		            <a href="/gallery/" title="生活分享">
-		                生活分享
-		            </a>
-		        </li>
-		        
-
-
-            </ul>
-            <!-- icons 图标   -->
-			<ul class="icons">
-                    
-			</ul>
-</nav>
-                        <div id="main">
-            <!-- Main first s-->
-            <article id="me" class="panel">
-                <header style="color: #000000">
-                    <h1>Hubert</h1>
-                    <p>This is my own blog to share my knowledge</p>
-                </header>
-                <a href="" class="jumplink pic">
-                    <span class="arrow icon fa-chevron-right"><span></span></span>
-                    <img src="/images/me.jpg" alt="" />
-                </a>
-            </article>
-            <!-- Main first e-->
-        </div>
-                    <div class="demo">
-                        <div class="container">
-                            <div class="row">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Copyright 版权 start -->
-                            <div id="copyright">
-            <ul>
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
                 <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
                 <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
-            </ul>
-            
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-			
-        </div>
-    </div>
-</body>
+						</ul>
+					</footer>
 
+			</div>
+						<script src="/js/jquery.min.js"></script>
+			<script src="/js/gallery_skel.min.js"></script>
+			<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/js/mic_gallery.js"></script>
 
- 	
+	</body>
+
+        
+    
 </html>
