@@ -132,7 +132,7 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
 <li><p>是什么</p>
 <p>是一款容器引擎，是一个用于开发，交付和运行应用程序的开放平台 </p>
 </li>
@@ -142,35 +142,49 @@
 </li>
 <li><p>三要素</p>
 <ol>
-<li><p>镜像</p>
+<li><p>镜像（花卷）</p>
 <blockquote>
 <ul>
 <li><p>是什么？</p>
-<p>是一个软件包，该包打包好运行环境，是创造容器的一个模板。是rootfs</p>
+<ul>
+<li>是一个软件包，该包打包好运行环境，是创造容器的一个模板。是rootfs</li>
+</ul>
 </li>
 <li><p>特点</p>
-<p>镜像层只能可读</p>
+<ul>
+<li>镜像层只能可读</li>
+</ul>
 </li>
 <li><p>原理</p>
-<p>UnionFS（联合文件系统），Docker的镜像底层基础是联合文件系统，改系统的特点是支持多层的叠加文件系统，就像花卷一样，Docker可以利用该特点<strong>（分层技术）</strong>来进行创建特定的镜像</p>
+<ul>
+<li>UnionFS（联合文件系统），Docker的镜像底层基础是联合文件系统，改系统的特点是支持多层的叠加文件系统，就像花卷一样，Docker可以利用该特点<strong>（分层技术）</strong>来进行创建特定的镜像</li>
+</ul>
 </li>
 <li><p>镜像采用分层技术的优点</p>
-<p>镜像分层最大的一个好处就是共享资源，方便复制迁移，就是为了复用。 </p>
-<p>以及功能可扩展性</p>
+<ul>
+<li>镜像分层最大的一个好处就是共享资源，方便复制迁移，就是为了复用。 </li>
+<li>功能可扩展性</li>
+</ul>
 </li>
 <li><p>镜像和容器的关系</p>
-<p>类比java，镜像是类，容器是实例</p>
-<p><strong>镜像只能可读，但是容器可操作，而镜像到容器的这个“实例化”的过程是在镜像层上添加容器层</strong></p>
+<ul>
+<li>类比java，镜像是类，容器是实例</li>
+<li><strong>镜像只能可读，但是容器可操作，而镜像到容器的这个“实例化”的过程是在镜像层上添加容器层</strong></li>
+</ul>
 </li>
 <li><p>虚悬镜像（dangling images）</p>
-<p>就是仓库名和tag标签为空的镜像</p>
-<p>相关操作</p>
+<ul>
+<li><p>就是仓库名和tag标签为空的镜像</p>
+</li>
+<li><p>相关操作</p>
 <ul>
 <li><p>查看虚悬镜像</p>
 <p>docker image ls -f dangling&#x3D;true</p>
 </li>
 <li><p>删除虚悬镜像</p>
 <p>docker image prune</p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -183,6 +197,9 @@
 </ul>
 </li>
 <li><p>仓库</p>
+<ul>
+<li>存放镜像的地方</li>
+</ul>
 </li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">+-----+-----+-----+-----+                                   +-----+-----+-----+-----+</span><br><span class="line">|App A|App B|App C|App D|     +-----+-----+-----+-----+     |App A|App B|App C|App D|</span><br><span class="line">+-----+-----+-----+-----+     |App A|App B|App C|App D|     +-----+-----+-----+-----+</span><br><span class="line">|+---------------------+|     +-----+-----+-----+-----+     |Guest|Guest|Guest|Guest|</span><br><span class="line">||   Runtime Library   ||     |Lib A|Lib B|Lib C|Lib D|     | OS0 | OS1 | OS2 | OS3 |</span><br><span class="line">|+---------------------+|     +-----+-----+-----+-----+     +-----+-----+-----+-----+</span><br><span class="line">||       Kernel        ||     |    Container Engine   |     |        Hypervisor     |</span><br><span class="line">|+---------------------+|     +-----------------------+     +-----------------------+</span><br><span class="line">|   Operating System    |     |         Host OS       |     |         Host OS       |</span><br><span class="line">+-----------------------+     +-----------------------+     +-----------------------+</span><br><span class="line">|       Hardware        |     |        Hardware       |     |        Hardware       |</span><br><span class="line">+-----------------------+     +-----------------------+     +-----------------------+</span><br><span class="line">    Physical Machine                  Container                 Type II Hypervisor</span><br></pre></td></tr></table></figure>
@@ -190,11 +207,15 @@
 <li><p>数据卷</p>
 <ul>
 <li><p>是什么？</p>
-<p>是一个存储文件，存储docker容器产生的数据</p>
-<p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Docker&spm=1001.2101.3001.7020">Docker</a>将运用与运行的环境打包形成容器运行， Docker容器产生的数据，如果不通过docker commit生成新的镜像，使得数据做为镜像的一部分保存下来， 那么当容器删除后，数据自然也就没有了。 为了能保存数据在Docker中我们使用卷。</p>
+<ul>
+<li>是一个存储文件，存储docker容器产生的数据</li>
+<li><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Docker&spm=1001.2101.3001.7020">Docker</a>将运用与运行的环境打包形成容器运行， Docker容器产生的数据，如果不通过docker commit生成新的镜像，使得数据做为镜像的一部分保存下来， 那么当容器删除后，数据自然也就没有了。 为了能保存数据在Docker中我们使用卷。</li>
+</ul>
 </li>
 <li><p>作用</p>
-<p><strong>卷的设计目的就是数据的持久化，完全独立于容器的生存周期，因此Docker不会在容器删除时删除其挂载的数据卷。</strong> </p>
+<ul>
+<li><strong>卷的设计目的就是数据的持久化，完全独立于容器的生存周期，因此Docker不会在容器删除时删除其挂载的数据卷。</strong></li>
+</ul>
 </li>
 <li><p>特点</p>
 <ol>
@@ -207,7 +228,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="理解原理"><a href="#理解原理" class="headerlink" title="理解原理"></a>理解原理</h2><ul>
+<h2 id="浅析原理"><a href="#浅析原理" class="headerlink" title="浅析原理"></a>浅析原理</h2><ul>
 <li><p><strong>容器的本质是一种特殊的进程</strong> </p>
 </li>
 <li><p><strong>容器本身没有价值，有价值的是“容器编排</strong> ，容器本身是一个底层技术，解决了应用打包这个问题，但是技术要落地到应用，要落地到Pass平台，所以如何利用容器进行商业化的应用才是真正的价值。</p>
@@ -215,19 +236,44 @@
 <li><p>容器的<strong>隔离</strong>和<strong>资源限制</strong>实现</p>
 <ol>
 <li><p>namespace</p>
-<p>相当于一个障眼法，利用linux的namespace机制实现隔离，而一个个docker实际上是一个个特殊的进程</p>
-<p><strong>Namespace 技术实际上修改了应用进程看待整个计算机“视 图”，即它的“视线”被操作系统做了限制，只能“看到”某些指定的内容。但对于宿主机来 说，这些被“隔离”了的进程跟其他进程并没有太大区别。</strong> </p>
-<p>namespace的实现有很多类，比如PID，mount，network等方式（这就是 Mount Namespace 跟其他 Namespace 的使用略有不同的地方：它对容器进程视图的 改变，一定是伴随着挂载操作（mount）才能生效。 ）</p>
+<ul>
+<li><p>理解：</p>
+<ul>
+<li>相当于一个障眼法，利用linux的namespace机制实现隔离，而一个个docker实际上是一个个特殊的进程</li>
+<li><strong>Namespace 技术实际上修改了应用进程看待整个计算机“视 图”，即它的“视线”被操作系统做了限制，只能“看到”某些指定的内容。但对于宿主机来 说，这些被“隔离”了的进程跟其他进程并没有太大区别。</strong></li>
+</ul>
+</li>
+<li><p>分类</p>
+<ul>
+<li>namespace的实现有很多类，比如PID，mount，network等方式（但是 Mount Namespace 跟其他 Namespace 的使用略有不同的地方：它对容器进程视图的 改变，一定是伴随着挂载操作（mount）才能生效。 ）</li>
+</ul>
+</li>
+<li><p>namespace的位置</p>
+<ul>
+<li>尽管改变了进程的视图，但是在OS上确是实际存在，在namespace就映射在 &#x2F;proc&#x2F;PID&#x2F;ns中，在该文件夹中存储了容器namespace所有的映射，<strong>而这也是docker excec能进入一个容器的原因</strong>（本质上是一个进程加入另一个进程，而进入docker这进程实际上是加入docker的namespace）</li>
+</ul>
+</li>
+</ul>
 </li>
 <li><p>cgroups</p>
-<p>Linux Cgroups 的全称是 Linux Control Group。它最主要的作用，就是限制一个进程组能够 使用的资源上限，包括 CPU、内存、磁盘、网络带宽等等。 </p>
-<p><strong>在 Linux 中，Cgroups 给用户暴露出来的操作接口是文件系统，即它以文件和目录的方式组织 在操作系统的 &#x2F;sys&#x2F;fs&#x2F;cgroup 路径下</strong> </p>
-<p>在 &#x2F;sys&#x2F;fs&#x2F;cgroup目录下又很多资源，比如CPU，内存，如果我们在对应文件里面创建一个进程对应的文件，文件会自动创建一些目录，对响应的目录进行设置即可对资源进行限制，最后在将进程的PID写入task文件即可</p>
+<ul>
+<li>概念<ul>
+<li>Linux Cgroups 的全称是 Linux Control Group。它最主要的作用，就是限制一个进程组能够 使用的资源上限，包括 CPU、内存、磁盘、网络带宽等等。</li>
+</ul>
+</li>
+<li>实现资源限制原理：<ul>
+<li><strong>在 Linux 中，Cgroups 给用户暴露出来的操作接口是文件系统，即它以文件和目录的方式组织 在操作系统的 &#x2F;sys&#x2F;fs&#x2F;cgroup 路径下</strong> </li>
+<li>在 &#x2F;sys&#x2F;fs&#x2F;cgroup目录下又很多资源，比如CPU，内存，如果我们在对应文件里面创建一个进程对应的文件，文件会自动创建一些目录，对响应的目录进行设置即可对资源进行限制，最后在将进程的PID写入task文件即可</li>
+</ul>
+</li>
+</ul>
 </li>
 </ol>
 </li>
 <li><p>容器的安全问题</p>
-<p>在生产环境中，没有人敢把运行在物理机上的 Linux 容器直接暴露到公网上。因为本质来讲就是一个进程，公用同一个内核，所以安全性不高。</p>
+<ul>
+<li>在生产环境中，没有人敢把运行在物理机上的 Linux 容器直接暴露到公网上。因为本质来讲就是一个进程，公用同一个内核，所以安全性不高。</li>
+</ul>
 </li>
 </ul>
 <h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h3><ul>
@@ -249,18 +295,21 @@
 <li><p>docker ps       查看当前容器</p>
 </li>
 <li><p>docker exec  进入当前容器</p>
-</li>
-</ul>
 <blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; &gt; &gt; &gt; docker exec -it &lt;容器 ID&gt;  /bin/bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;容器 ID&gt;  /bin/bash</span><br></pre></td></tr></table></figure>
 </blockquote>
-<ul>
+</li>
 <li><p>相关信息总结</p>
-<p><strong>CONTAINER ID:</strong> 容器 ID。</p>
-<p><strong>IMAGE:</strong> 使用的镜像。</p>
-<p><strong>COMMAND:</strong> 启动容器时运行的命令。</p>
-<p><strong>CREATED:</strong> 容器的创建时间。</p>
-<p><strong>STATUS:</strong> 容器状态。</p>
+</li>
+<li><p><strong>CONTAINER ID:</strong> 容器 ID。</p>
+</li>
+<li><p><strong>IMAGE:</strong> 使用的镜像。</p>
+</li>
+<li><p><strong>COMMAND:</strong> 启动容器时运行的命令。</p>
+</li>
+<li><p><strong>CREATED:</strong> 容器的创建时间。</p>
+</li>
+<li><p><strong>STATUS:</strong> 容器状态。</p>
 <ul>
 <li>状态有7种：<ul>
 <li>created（已创建）</li>
@@ -273,7 +322,14 @@
 </ul>
 </li>
 </ul>
-<p><strong>PORTS:</strong> 容器的端口信息和使用的连接类型（tcp\udp）。</p>
+</li>
+<li><p><strong>PORTS:</strong> 容器的端口信息和使用的连接类型（tcp\udp）。</p>
+</li>
+<li><p><strong>NAMES:</strong> 自动分配的容器名称。</p>
+</li>
+<li><p><strong>PORTS:</strong> 容器的端口信息和使用的连接类型（tcp\udp）。</p>
+</li>
+<li><p><strong>NAMES:</strong> 自动分配的容器名称。<br><strong>PORTS:</strong> 容器的端口信息和使用的连接类型（tcp\udp）。</p>
 <p><strong>NAMES:</strong> 自动分配的容器名称。</p>
 </li>
 <li><p>docker export    导出容器</p>
@@ -283,22 +339,14 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat docker/ubuntu.tar | docker import - test/ubuntu:v1</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>dockert rm   删除容器</p>
-</li>
-</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker rm -f 1e560fca3906</span><br><span class="line"></span><br><span class="line">下面的命令可以清理掉所有处于终止状态的容器。</span><br><span class="line">$ docker container prune</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>docker port   查看容器端口映射</li>
-</ul>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; &gt; &gt; &gt; runoob@runoob:~$ docker port bf08b7f2cd89</span><br><span class="line">&gt; &gt; &gt; &gt; &gt; 5000/tcp -&gt; 0.0.0.0:5000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>docker log  查看容器日志</li>
-</ul>
+</li>
+<li><p>docker port   查看容器端口映射</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; &gt; &gt; &gt; &gt; runoob@runoob:~$ docker port bf08b7f2cd89</span><br><span class="line">&gt; &gt; &gt; &gt; &gt; &gt; 5000/tcp -&gt; 0.0.0.0:5000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>docker log  查看容器日志</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runoob@runoob:~$ docker logs -f bf08b7f2cd89</span><br></pre></td></tr></table></figure>
-
-<ul>
+</li>
 <li><p>容器互联</p>
 <blockquote>
 <ol>
@@ -349,15 +397,20 @@
 </ul>
 <h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><ul>
 <li><p>是什么？</p>
-<p>创建镜像的文本文件，用来指导创建镜像</p>
-<p>Dockerfile是用来构建Docker镜像的文本文件，是由一条条构建镜像所需的指令和参数构成的脚本。</p>
+<ul>
+<li>创建镜像的文本文件，用来指导创建镜像</li>
+<li>Dockerfile是用来构建Docker镜像的文本文件，是由一条条构建镜像所需的指令和参数构成的脚本。</li>
+</ul>
 </li>
 <li><p>理解：</p>
 <ol>
-<li><p>首先，创造镜像有两种方式，第一种是创建容器，在容器里面进行创建，第二种是dockerfile文本文件创建，而dockerfile创建的本质是使用脚本自动化的实现第一种模式。</p>
+<li>创建方式：<ul>
+<li>创造镜像有两种方式，第一种是创建容器，在容器里面进行创建，第二种是dockerfile文本文件创建，而dockerfile创建的本质是使用脚本自动化的实现第一种模式。</li>
+</ul>
 </li>
-<li><p>为什么要创建镜像？</p>
-<p>不同生产环境下具有不同的底层软件支持，所以要创建一个合适的镜像，而不是仅仅使用通用的，说白了就是<strong>搭建合适的具有相关功能的镜像</strong></p>
+<li>为什么要创建镜像？<ul>
+<li>不同生产环境下具有不同的底层软件支持，所以要创建一个合适的镜像，而不是仅仅使用通用的，说白了就是<strong>搭建合适的具有相关功能的镜像</strong></li>
+</ul>
 </li>
 </ol>
 </li>
@@ -378,30 +431,20 @@
 </li>
 <li><p>关键字</p>
 <ul>
-<li><p>FROM                     基于那个基础镜像</p>
-</li>
-<li><p>MAINTAINER        相关维护者的信息</p>
-</li>
-<li><p>RUN                        执行的相关命令————-》等同于在终端执行的shell命令            <strong>（在docker build的时候执行）</strong></p>
-</li>
-<li><p>EXPOSE                  对外的是什么接口</p>
-</li>
-<li><p>WORDIR                 终端默认登录的工作目录</p>
-</li>
-<li><p>USER                       指定该镜像以什么样的用户去执行，如果都不指定，默认是root</p>
-</li>
-<li><p>ENV                           指定环境变量（WORKDIR $MY_PATH ）</p>
-</li>
-<li><p>ADD                           将宿主机目录下的文件拷贝进镜像且会自动处理URL和解压tar压缩包</p>
-</li>
-<li><p>COPY                       将宿主机目录下的文件拷贝进镜像</p>
-</li>
-<li><p>VOLUME                    容器数据卷，用于数据保存和持久化工作</p>
-</li>
-<li><p>CMD               Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换    <strong>（在docker run的时候执行）</strong></p>
-</li>
-<li><p>ENTRYPOINT    类似于 CMD 指令，但是ENTRYPOINT不会被docker run后面的CMD命令覆盖，而且这些命令行参数会被当作参数送给 ENTRYPOINT 指令指定的程序（<strong>未指定时为隐式声明</strong>）</p>
-<p><strong>ENTRYPOINT 和  CMD配合使用，此时的CMD的任务不是执行命令，而是传递参数，并且cmd的参数会受docker run后面的参数影响</strong></p>
+<li>FROM                     基于那个基础镜像</li>
+<li>MAINTAINER        相关维护者的信息</li>
+<li>RUN                        执行的相关命令————-》等同于在终端执行的shell命令            <strong>（在docker build的时候执行）</strong></li>
+<li>EXPOSE                  对外的是什么接口</li>
+<li>WORDIR                 终端默认登录的工作目录</li>
+<li>USER                       指定该镜像以什么样的用户去执行，如果都不指定，默认是root</li>
+<li>ENV                           指定环境变量（WORKDIR $MY_PATH ）</li>
+<li>ADD                           将宿主机目录下的文件拷贝进镜像且会自动处理URL和解压tar压缩包</li>
+<li>COPY                       将宿主机目录下的文件拷贝进镜像</li>
+<li>VOLUME                    容器数据卷，用于数据保存和持久化工作</li>
+<li>CMD               Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换    <strong>（在docker run的时候执行）</strong></li>
+<li>ENTRYPOINT    类似于 CMD 指令，但是ENTRYPOINT不会被docker run后面的CMD命令覆盖，而且这些命令行参数会被当作参数送给 ENTRYPOINT 指令指定的程序（<strong>未指定时为隐式声明</strong>）<ul>
+<li><strong>ENTRYPOINT 和  CMD配合使用，此时的CMD的任务不是执行命令，而是传递参数，并且cmd的参数会受docker run后面的参数影响</strong></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -412,32 +455,47 @@
 <li><p>docker build -t  新镜像名称：TAG .  （注意不要忘记后面的那个点）</p>
 </li>
 <li><p>docker run -it 新镜像名字:TAG </p>
-<p>这三部对应了上面的三张图</p>
+<ul>
+<li>这三部对应了上面的三张图</li>
+</ul>
 </li>
 </ol>
 </li>
 </ul>
 <h2 id="Docker网络"><a href="#Docker网络" class="headerlink" title="Docker网络"></a>Docker网络</h2><ul>
-<li><p>是什么</p>
-<p>就是容器之间的网络连接</p>
+<li>是什么<ul>
+<li>就是容器之间的网络连接</li>
+</ul>
 </li>
-<li><p>作用</p>
-<ul>
+<li>作用<ul>
 <li>容器间的互联和通信以及端口映射</li>
 <li>容器IP变动时候可以通过服务名直接网络通信而不受到影响</li>
 </ul>
 </li>
-<li><p>模式</p>
-<ul>
-<li><p>bridge</p>
-<p>相当于NAT，每个容器通过Docker0这个虚拟的路由器分配得到各自的IP</p>
+<li>模式<ul>
+<li>bridge<ul>
+<li>相当于NAT，每个容器通过Docker0这个虚拟的路由器分配得到各自的IP</li>
+</ul>
 </li>
-<li><p>host</p>
-<p>容器和宿主机公用同一个IP地址</p>
+<li>host<ul>
+<li>容器和宿主机公用同一个IP地址</li>
+</ul>
 </li>
-<li><p>none</p>
+<li>none<ul>
+<li>禁用网络功能，只有lo标识(就是127.0.0.1表示本地回环)</li>
+</ul>
 </li>
-<li><p>自定义</p>
+<li>container<ul>
+<li>container⽹络模式 新建的容器和已经存在的一个容器共享一个网络ip配置而不是和宿主机共享。新创建的容器不会创建自己的网卡，配置自己的IP，而是和一个指定的容器共享IP、端口范围等。同样，两个容器除了网络方面，其他的如文件系统、进程列表等还是隔离的。 </li>
+<li><strong>就是和一个容器只共享网络</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>思考<ul>
+<li>bridge和host的区别<ul>
+<li>host模式中，因为容器的ip为宿主机Ip，所以在效率上更高，利用率跟高，bridge因为受到统一的安排，所以更好的管理</li>
+</ul>
 </li>
 </ul>
 </li>
