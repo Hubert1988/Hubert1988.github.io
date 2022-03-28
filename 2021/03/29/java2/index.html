@@ -127,12 +127,92 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(img/blog/p1.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Start</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(img/java/bg.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Java-面对对象</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h1 id="谨以此站记录本人知识积累"><a href="#谨以此站记录本人知识积累" class="headerlink" title="谨以此站记录本人知识积累"></a>谨以此站记录本人知识积累</h1><h2 id="stay-hungry-stay-foolish"><a href="#stay-hungry-stay-foolish" class="headerlink" title="stay hungry        stay foolish"></a>stay hungry        stay foolish</h2>
+                <h2 id="面对对象"><a href="#面对对象" class="headerlink" title="面对对象"></a>面对对象</h2><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><ul>
+<li><p>方法</p>
+<blockquote>
+<ol>
+<li><p>方法的参数传递问题</p>
+<ul>
+<li>传递基本数据类型和引用数据类型的区别</li>
+<li>传递可变参数</li>
+</ul>
+</li>
+<li><p>方法的重载</p>
+<p>就是相同的方法中，只有参数不同，从而匹配不同的同名方法。</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>构造方法（构造器）</p>
+<blockquote>
+<ul>
+<li>注意会默认调用父类的构造器，所以子类在实例化的时候要注意</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><ul>
+<li><p>理解：因为类可以被继承，并且子类可以对父类的方法进行重写，由此可以演进出以父类为模板的，子类来实现的模式，而抽象类可以作为模板</p>
+</li>
+<li><p><strong>抽象类中，抽象方法本质上是定义接口规范：即规定高层类的接口，从而保证所有子类都有相同的接口实现，这样，多态就能发挥出威力</strong>。 </p>
+</li>
+<li><p>注意事项：</p>
+<blockquote>
+<ol>
+<li><p>抽象类和抽象类的方法用abstract修饰,抽象方法没有代码体</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>继承的子类必须重写抽象类的所有方法</p>
+</li>
+<li><p>有抽象方法的类必须是抽象类，抽象类的方法不一定是抽象方法</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><ul>
+<li><p>本质：比抽象类还要抽象的纯抽象接口 ，<strong>一个抽象类没有字段，所有方法全部都是抽象方法的抽象类</strong></p>
+</li>
+<li><p>default方法？  <strong>接口新增方法，无需重写全部子类</strong></p>
+</li>
+<li><p>接口内部除了方法，还可以存在静态变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MALE</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">FEMALE</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">但可以被简写</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="comment">// 编译器会自动加上public statc final:</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">MALE</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">FEMALE</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="包"><a href="#包" class="headerlink" title="包"></a>包</h4><ul>
+<li>包没有父子关系。java.util和java.util.zip是不同的包，两者没有任何继承关系。</li>
+</ul>
+<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><ul>
+<li>通过private将变量隐藏，再通过方法进行操作</li>
+</ul>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><ul>
+<li><p>使用extends关键字进行类的继承</p>
+</li>
+<li><p>super关键字</p>
+<blockquote>
+<p>子类构造器第一行有默认super（）调用父类的构造器，所以继承时，子类的构造器要注意super参数的传递问题</p>
+</blockquote>
+</li>
+<li><p><strong>向上转型和向下转型</strong></p>
+<p>向上转型：父类类型的变量指向子类的实例，是安全的</p>
+<p>向下转型：实际上是强制类型转换，不安全，需要进行instanceof进行判断后才行，否则报ClassCastException 错误</p>
+</li>
+<li><p><strong>方法的重写</strong></p>
+<p>就是子类中重新编辑父类中的某个方法，子父类中的方法要严格相同，不相同就是重载</p>
+</li>
+</ul>
+<h4 id="多态："><a href="#多态：" class="headerlink" title="多态："></a>多态：</h4><ul>
+<li><p>多态体现为<strong>父类引用变量指向子类对象</strong>。</p>
+<p><strong>Java的实例方法调用是基于运行时的实际类型的动态调用，而非变量的声明类型。</strong> </p>
+</li>
+<li><p><strong>多态具有一个非常强大的功能，就是允许添加更多类型的子类实现功能扩展，却不需要修改基于父类的代码。</strong></p>
+</li>
+</ul>
+
             </div>
 
             <!-- Post Comments -->
@@ -194,8 +274,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2021/03/27/index/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2021/03/27/index/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2021/03/29/java2/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2021/03/29/java2/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
