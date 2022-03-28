@@ -96,7 +96,7 @@
 	            <a href="#s1">分类</a>
 	                    <ul class="submenu">
 	                        <li>
-	                        <a class="category-link" href="/categories/docker/">docker</a></li><li><a class="category-link" href="/categories/java/">java</a></li><li><a class="category-link" href="/categories/other/">other</a>
+	                        <a class="category-link" href="/categories/CloudComputing/">CloudComputing</a></li><li><a class="category-link" href="/categories/Net/">Net</a></li><li><a class="category-link" href="/categories/docker/">docker</a></li><li><a class="category-link" href="/categories/java/">java</a></li><li><a class="category-link" href="/categories/other/">other</a>
 	                    </ul>
 	        </li>
 	        
@@ -133,18 +133,22 @@
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
                 <h2 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…."></a>持续更新中….</h2><ul>
-<li><p>一个基本的java程序</p>
+<li><h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><ul>
+<li><p><strong>一个基本的java程序</strong></p>
 <blockquote>
 <ol>
 <li><p>程序入口规范</p>
-<p>   Java入口程序规定的方法必须是静态方法，方法名必须为main，括号内的参数必须是String数组。</p>
+<p>Java入口程序规定的方法必须是静态方法，方法名必须为main，括号内的参数必须是String数组。</p>
 </li>
-<li><p>类class名首字母大写</p>
+<li><p>类class名<strong>首字母大写</strong></p>
 </li>
 </ol>
 </blockquote>
 </li>
-<li><p>运算的准确性</p>
+<li><p><strong>内存示意图</strong></p>
+<p><img src="https://wx4.sinaimg.cn/mw690/008srJVCly1h0pwmjwkanj30hr09v0sx.jpg"></p>
+</li>
+<li><p><strong>运算的准确性</strong></p>
 <ol>
 <li><p><strong>首先关于数字的表示，整数部分因为十进制和二进制可以对等转换，所以是准确的，但是浮点数可能因为和二进制转换的问题，导致无法精准的计算</strong></p>
 <blockquote>
@@ -158,12 +162,12 @@
 </li>
 </ol>
 </li>
-<li><p>三元运算符</p>
+<li><p><strong>三元运算符</strong></p>
 <blockquote>
 <p>三元运算符<code>b ? x : y</code>，它根据第一个布尔表达式的结果，分别返回后续两个表达式之一的计算结果 </p>
 </blockquote>
 </li>
-<li><p>转义字符</p>
+<li><p><strong>转义字符</strong></p>
 <ul>
 <li><code>\&quot;</code> 表示字符<code>&quot;</code></li>
 <li><code>\&#39;</code> 表示字符<code>&#39;</code></li>
@@ -175,7 +179,7 @@
 <li>%%   表示%</li>
 </ul>
 </li>
-<li><p>数据类型</p>
+<li><p><strong>数据类型</strong></p>
 <ul>
 <li>基本数据类型<ol>
 <li>数值<ol>
@@ -187,14 +191,19 @@
 <li>double（64位）</li>
 </ol>
 </li>
-<li>字符串（char 16位）</li>
+<li>字符（char 16位）</li>
 <li>布尔（boolean 默认为false）</li>
 </ol>
 </li>
-<li>引用数据类型</li>
+<li>引用数据类型<ul>
+<li>类</li>
+<li>接口</li>
+<li>数组</li>
 </ul>
 </li>
-<li><p>变量类型</p>
+</ul>
+</li>
+<li><p><strong>变量类型</strong></p>
 <ul>
 <li><p>类变量（用static进行修饰，就是静态变量，属于类，随着类的创建进行加载）</p>
 <blockquote>
@@ -221,11 +230,8 @@
 <li>因为在方法，代码块，构造器中，所以不能被访问修饰符进行修饰</li>
 </ol>
 </blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Variable&#123;</span><br><span class="line">  static int allClicks=0;    // 类变量</span><br><span class="line"></span><br><span class="line">  String str=&quot;hello world&quot;;  // 实例变量</span><br><span class="line"></span><br><span class="line">  public void method()&#123;</span><br><span class="line"></span><br><span class="line">  int i =0;  // 局部变量</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Variable</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> allClicks=<span class="number">0</span>;    <span class="comment">// 类变量</span></span><br><span class="line"> </span><br><span class="line">    String str=<span class="string">&quot;hello world&quot;</span>;  <span class="comment">// 实例变量</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">method</span><span class="params">()</span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>;  <span class="comment">// 局部变量</span></span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
 <li><p>理解总结：</p>
 <ul>
 <li>Java 中静态变量和实例变量区别<ul>
@@ -233,18 +239,19 @@
 <li>实例变量属于该类的对象，必须产生该类对象，才能调用实例变量。</li>
 </ul>
 </li>
+<li>局部变量要进行初始化</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>修饰符</p>
+<li><p><strong>修饰符</strong></p>
 <ol>
 <li><p>访问修饰符</p>
 <blockquote>
 <ol>
 <li>public 意味着任何地方的其他类都能访问。</li>
 <li>default 则是同一个包的类可以访问。</li>
-<li>protected 表示同一个包的类可以访问，其他的包的该类的子类也可以访问。</li>
+<li>protected 表示同一个包的类可以访问，<strong>其他的包的该类的子类也可以访问。</strong></li>
 <li>private 表示只有自己类能访问。</li>
 </ol>
 </blockquote>
@@ -252,11 +259,11 @@
 <li><p>非访问修饰符</p>
 <blockquote>
 <ol>
-<li><p>staic (修饰类方法和类变量) </p>
+<li><p>staic (修饰类<strong>方法</strong>和类<strong>变量</strong>) </p>
 <p>对类变量和方法的访问可以直接使用 <strong>classname.variablename</strong> 和 <strong>classname.methodname</strong> 的方式访问。</p>
 </li>
 <li><p>final</p>
-<p>用来修饰类、方法和变量，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。 </p>
+<p>用来修饰<strong>类</strong>、<strong>方法和变量</strong>，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。 </p>
 </li>
 <li><p>abstract （用来创建抽象类和抽象方法 ）</p>
 <p>如果一个类包含抽象方法，那么该类一定要声明为抽象类</p>
@@ -280,35 +287,29 @@
 </li>
 </ol>
 </li>
-<li><p>数组</p>
+<li><p><strong>流程控制</strong></p>
 <ol>
-<li><p>关于字符串数组的修改问题：实际上是创建了新的内容，<strong>改变了指针的位置</strong></p>
-</li>
-<li><p><strong>数组的操作</strong></p>
+<li><p>循环：</p>
 <ul>
-<li><p>遍历</p>
-<blockquote>
-<ol>
-<li>for</li>
-<li>for each</li>
-</ol>
-</blockquote>
-</li>
-<li><p>排序</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Sort</span> &#123;</span><br><span class="line"><span class="comment">//冒泡排序</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sort_maopao</span><span class="params">(<span class="type">int</span>[] arg)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arg.length-<span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; arg.length-i-<span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arg[j]&gt;arg[j+<span class="number">1</span>])&#123;</span><br><span class="line">                    <span class="type">int</span> temp;</span><br><span class="line">                    temp = arg[j];</span><br><span class="line">                    arg[j] = arg[j+<span class="number">1</span>];</span><br><span class="line">                    arg[j+<span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//选择排序</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sort_select</span><span class="params">(<span class="type">int</span>[] arg)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;arg.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;arg.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (arg[min] &gt; arg[j])&#123;</span><br><span class="line">                    min = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i != min)&#123;</span><br><span class="line">                <span class="type">int</span> temp;</span><br><span class="line">                temp = arg[min];</span><br><span class="line">                arg[min] = arg[i];</span><br><span class="line">                arg[i] = temp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//插入排序    </span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sort_insert</span><span class="params">(<span class="type">int</span>[] arg)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">1</span>;i &lt;arg.length;i++)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> arg[i];</span><br><span class="line">            <span class="type">int</span> <span class="variable">position</span> <span class="operator">=</span>i;</span><br><span class="line">            <span class="keyword">while</span> (position &gt;<span class="number">0</span> &amp;&amp; arg[position-<span class="number">1</span>] &gt; value)&#123;</span><br><span class="line">                arg[position] = arg[position - <span class="number">1</span>];</span><br><span class="line">                position--;</span><br><span class="line">            &#125;</span><br><span class="line">            arg[position] = value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//快速排序</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sort_quick</span><span class="params">(<span class="type">int</span>[] arg, <span class="type">int</span> left, <span class="type">int</span> right)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> get_mid(arg,  left,  right);</span><br><span class="line">            sort_quick(arg,left,mid-<span class="number">1</span>);</span><br><span class="line">            sort_quick(arg,mid+<span class="number">1</span>,right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">get_mid</span><span class="params">(<span class="type">int</span>[] arg, <span class="type">int</span> left, <span class="type">int</span> right)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arg[left];</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">while</span> (left &lt;right &amp;&amp; arg[right]&gt;pivot)&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            arg[left] = arg[right];</span><br><span class="line">            <span class="keyword">while</span> (left &lt;right &amp;&amp; arg[left] &lt;pivot)&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            arg[right] =arg[left];</span><br><span class="line">        &#125;</span><br><span class="line">        arg[left] = pivot;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查找</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二分查找</span></span><br><span class="line"><span class="keyword">static</span> <span class="type">int</span>  <span class="title function_">binary_search</span><span class="params">(<span class="type">int</span>[] list,<span class="type">int</span> left, <span class="type">int</span> right, <span class="type">int</span> value)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> (right - left);</span><br><span class="line">        <span class="keyword">if</span> (left &gt; right)&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(list[mid] &gt; value)&#123;</span><br><span class="line">            right = mid -<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(list[mid] &lt; value)&#123;</span><br><span class="line">            left = mid +<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> binary_search(list, left, right, value);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li>while 循环</li>
+<li>do…while 循环</li>
+<li>for 循环</li>
+<li>for each循环（针对数组）</li>
+<li>注意：<ul>
+<li>break</li>
+<li>continue</li>
 </ul>
 </li>
-</ol>
+</ul>
 </li>
-<li><p>运算符</p>
+<li><p>判断：</p>
+<ul>
+<li><p>if…else语句      （二选一）</p>
 </li>
-<li><p>流程控制</p>
-<ol>
+<li><p>if…else if…else 语句   （多选一）</p>
+</li>
+</ul>
+</li>
 <li><p>输入和输出</p>
 <ul>
 <li><p>输出</p>
@@ -327,39 +328,9 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span>&#123;</span><br><span class="line">	<span class="type">BufferedReader</span> <span class="variable">buf</span> <span class="operator">=</span> <span class="literal">null</span> ;		<span class="comment">// 声明对象</span></span><br><span class="line">	buf = <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in)) ;<span class="comment">// 将字节流变为字符流</span></span><br><span class="line">	<span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span> ;	<span class="comment">// 接收输入内容</span></span><br><span class="line">	System.out.print(<span class="string">&quot;请输入内容：&quot;</span>) ;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		str = buf.readLine() ;	<span class="comment">// 读取一行数据</span></span><br><span class="line">	&#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">		e.printStackTrace() ;	<span class="comment">// 输出信息</span></span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;输入的内容为：&quot;</span> + str) ;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
-<li><p>循环</p>
-</li>
-<li><p>判断</p>
-</li>
 </ul>
 </li>
 </ol>
-</li>
-<li><p>包装类</p>
-</li>
-<li><p>String类</p>
-<ol>
-<li><p>创建的两种方法：</p>
-<ul>
-<li>直接创建</li>
-<li>构造函数创建</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Runoob&quot;</span>;              <span class="comment">// String 直接创建</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Runoob&quot;</span>;              <span class="comment">// String 直接创建</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> s1;                    <span class="comment">// 相同引用</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Runoob&quot;</span>);   <span class="comment">// String 对象创建</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Runoob&quot;</span>);   <span class="comment">// String 对象创建</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>区别：</p>
-<p>所创建的字符串存储位置不同</p>
-</blockquote>
-</li>
-<li><p>String被创建无法修改</p>
-</li>
-</ol>
-</li>
-<li><p>StringBuilder 和StringBuffer</p>
-<ul>
-<li><p>它是一个可变对象，可以预分配缓冲区 ，相比于与String，不需要清除空间并且重新写入，而是在原来空间进行修改</p>
-</li>
-<li><p><code>StringBuffer</code>，这是Java早期的一个<code>StringBuilder</code>的线程安全版本</p>
 </li>
 </ul>
 </li>

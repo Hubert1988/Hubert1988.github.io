@@ -127,89 +127,141 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(img/java/bg.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Java-面对对象</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(img/CloudComputing/bg.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >CloudComputing-初识</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h2 id="面对对象"><a href="#面对对象" class="headerlink" title="面对对象"></a>面对对象</h2><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><ul>
-<li><p>方法</p>
-<blockquote>
-<ol>
-<li><p>方法的参数传递问题</p>
+                <h1 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h1><ul>
+<li><p>是什么</p>
+<p><strong>网络+计算</strong></p>
 <ul>
-<li>传递基本数据类型和引用数据类型的区别</li>
-<li>传递可变参数</li>
+<li><p><strong>在服务角度层面：</strong></p>
+<p>像自来水一样提供基础的算力服务，Iass Pass Sass</p>
+</li>
+<li><p><strong>技术层面来说</strong></p>
+<p>以<strong>虚拟化为核心技术进行资源池化</strong>，<strong>以云管理平台对资源进行调配</strong>实现云计算的技术</p>
+</li>
 </ul>
 </li>
-<li><p>方法的重载</p>
-<p>就是相同的方法中，只有参数不同，从而匹配不同的同名方法。</p>
+<li><p>服务的三层平台理解</p>
+<p>三层模型</p>
+<ul>
+<li><p>Iass</p>
+<p>提供底层的硬件资源</p>
+</li>
+<li><p>Pass</p>
+<p>提供平台应用</p>
+<ul>
+<li>自己的应用自动安装</li>
+<li>通用的应用自动安装（比如数据库，理解：虽然自己可以基于Iass层自己安装数据库，但是规模大了之后需要维护，Pass层就很好的提供了基于平台的服务，让使用公司专注于业务）</li>
+</ul>
+<p>所以容器技术在Pass层大放异彩，平台服务由服务商提供，公司只需要专注于业务+</p>
+</li>
+<li><p>Sass</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="虚拟化技术"><a href="#虚拟化技术" class="headerlink" title="虚拟化技术"></a>虚拟化技术</h2><ul>
+<li><p>是什么：   是一种资源管理技术，将资源池化。            <strong>是一种硬件和操作系统的解耦</strong>      <strong>将操作系统进行隔离</strong></p>
+</li>
+<li><p>对象</p>
+<p>针对于服务器的资源，也叫服务区虚拟化 </p>
+</li>
+<li><p>作用：资源池化后提高了资源的利用率</p>
+</li>
+<li><p>特点：</p>
+<ol>
+<li>分区</li>
+<li>隔离</li>
+<li>封装</li>
+<li>相对于硬件相对独立</li>
+</ol>
+</li>
+<li><p>类型：</p>
+<ol>
+<li>寄居虚拟化<ul>
+<li>在操作系统层面安装虚拟化层</li>
+<li>部署简单，但是性能低</li>
+<li>VMware</li>
+</ul>
+</li>
+<li>裸金属虚拟化<ul>
+<li>vmm层在硬件上</li>
+<li>性能好，但是需要对vmm层的内核进行开发 </li>
+<li>Xen架构   华为的fushonPhere</li>
+</ul>
+</li>
+<li>混合虚拟化<ul>
+<li>在操作系统内核插入了一个虚拟化内核模块，相当于二者的结合</li>
+<li>性能高，开发难度小，<strong>但是需要硬件支持，需要支持虚拟化的cpu</strong></li>
+<li>KVM</li>
+</ul>
 </li>
 </ol>
-</blockquote>
 </li>
-<li><p>构造方法（构造器）</p>
-<blockquote>
-<ul>
-<li>注意会默认调用父类的构造器，所以子类在实例化的时候要注意</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><ul>
-<li><p>理解：因为类可以被继承，并且子类可以对父类的方法进行重写，由此可以演进出以父类为模板的，子类来实现的模式，而抽象类可以作为模板</p>
-</li>
-<li><p><strong>抽象类中，抽象方法本质上是定义接口规范：即规定高层类的接口，从而保证所有子类都有相同的接口实现，这样，多态就能发挥出威力</strong>。 </p>
-</li>
-<li><p>注意事项：</p>
-<blockquote>
+<li><p>架构类型</p>
 <ol>
-<li><p>抽象类和抽象类的方法用abstract修饰,抽象方法没有代码体</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>全虚拟化</p>
+<ul>
+<li>KVM就是全虚拟化，<strong>通常为加入kvm内核模块进行虚拟化，还要配合QEMU模块进行IO虚拟化等工作</strong></li>
+<li>就是混合虚拟化</li>
+</ul>
 </li>
-<li><p>继承的子类必须重写抽象类的所有方法</p>
-</li>
-<li><p>有抽象方法的类必须是抽象类，抽象类的方法不一定是抽象方法</p>
+<li><p>半虚拟化</p>
+<ul>
+<li>Xen加固就是半虚拟化  <strong>通常在会有个总操作系统进行资源管理Domain0，其他资源调配需要domian0的辅助</strong></li>
+<li>就是裸金属虚拟化</li>
+</ul>
+<p>总结：全虚拟化：方便，性能好，但是安全隔离性较差</p>
 </li>
 </ol>
-</blockquote>
+</li>
+<li><p>技术类型</p>
+<ol>
+<li><p>计算虚拟化</p>
+<ul>
+<li>cpu</li>
+<li>内存</li>
+<li>I&#x2F;O</li>
+</ul>
+</li>
+<li><p>存储虚拟化</p>
+</li>
+<li><p>网络虚拟化</p>
+<ul>
+<li><p>定义</p>
+<p>指的是微观层面的虚拟化，不是路由交换层面的网络，而是服务器网络资源等虚拟</p>
+</li>
+<li><p>个人理解：</p>
+<ul>
+<li>总结下来，<strong>网络虚拟化主要解决的是虚拟机构成的网络通信问题，完成的是各种网络设备的虚拟化，如网卡、交换设备、路由设备等。</strong> </li>
+<li>网络虚拟化针对的是虚拟化后的各个虚拟机间的通信。比如我的硬件虚拟出了1000台虚拟机，他们该如何交换数据，如何沟通等问题就是网络虚拟化来解决</li>
+<li>其中虚拟机与虚拟机之间的通信，由虚拟交换机完成，虚拟网卡和虚拟交换机之间的链路也是虚拟的链路，整个主机内部构成了一个虚拟的网络，如果虚拟机之间涉及到三层的网络包转发，则又由另外一个角色——虚拟路由器来完成。</li>
+</ul>
+</li>
+<li><p>应用</p>
+<ul>
+<li><p>因为集成度比较高，可以单独作为一个模块，这一整套虚拟网络的模块都可以独立出去，由第三方来完成，如其中比较出名的一个解决方案就是 <strong>Open vSwitch（OVS）。</strong> </p>
+<p>OVS 的优势在于它基于 SDN 的设计原则，方便虚拟机集群的控制与管理，另外就是它分布式的特性，可以「透明」地实现跨主机之间的虚拟机通信，如下是跨主机启用 OVS 通信的图示。 </p>
+</li>
+<li><p>TAP&#x2F;TUN&#x2F;VETH、Bridge 这些虚拟的网络设备是 Linux 为了实现网络虚拟化而实现的网络设备模块，很多的云开源项目的网络功能都是基于这些技术做的，比如 Neutron、Docker network 等。</p>
 </li>
 </ul>
-<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><ul>
-<li><p>本质：比抽象类还要抽象的纯抽象接口 ，<strong>一个抽象类没有字段，所有方法全部都是抽象方法的抽象类</strong></p>
-</li>
-<li><p>default方法？  <strong>接口新增方法，无需重写全部子类</strong></p>
-</li>
-<li><p>接口内部除了方法，还可以存在静态变量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MALE</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">FEMALE</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">但可以被简写</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="comment">// 编译器会自动加上public statc final:</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">MALE</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">FEMALE</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="包"><a href="#包" class="headerlink" title="包"></a>包</h4><ul>
-<li>包没有父子关系。java.util和java.util.zip是不同的包，两者没有任何继承关系。</li>
-</ul>
-<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><ul>
-<li>通过private将变量隐藏，再通过方法进行操作</li>
-</ul>
-<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><ul>
-<li><p>使用extends关键字进行类的继承</p>
-</li>
-<li><p>super关键字</p>
-<blockquote>
-<p>子类构造器第一行有默认super（）调用父类的构造器，所以继承时，子类的构造器要注意super参数的传递问题</p>
-</blockquote>
-</li>
-<li><p><strong>向上转型和向下转型</strong></p>
-<p>向上转型：父类类型的变量指向子类的实例，是安全的</p>
-<p>向下转型：实际上是强制类型转换，不安全，需要进行instanceof进行判断后才行，否则报ClassCastException 错误</p>
-</li>
-<li><p><strong>方法的重写</strong></p>
-<p>就是子类中重新编辑父类中的某个方法，子父类中的方法要严格相同，不相同就是重载</p>
 </li>
 </ul>
-<h4 id="多态："><a href="#多态：" class="headerlink" title="多态："></a>多态：</h4><ul>
-<li><p>多态体现为<strong>父类引用变量指向子类对象</strong>。</p>
-<p><strong>Java的实例方法调用是基于运行时的实际类型的动态调用，而非变量的声明类型。</strong> </p>
 </li>
-<li><p><strong>多态具有一个非常强大的功能，就是允许添加更多类型的子类实现功能扩展，却不需要修改基于父类的代码。</strong></p>
+</ol>
+</li>
+</ul>
+<h2 id="OpenStack"><a href="#OpenStack" class="headerlink" title="OpenStack"></a>OpenStack</h2><ul>
+<li><p>是什么？</p>
+<p>是<strong>云化管理平台</strong>，虽然KVM，XEN是开源的但是，基于这些虚拟的资源进行管理的云平台是闭源的，而openstack是第一个开源的云化管理平台</p>
+</li>
+<li><p>理解：</p>
+<p>虚拟化技术将各种资源进行了池化，openstack实现了对池中资源的调度，可以类似理解为<strong>“管理云资源的操作系统”</strong></p>
+<p><strong>主要使用池化虚拟资源来构建和管理私有云及公共云</strong></p>
 </li>
 </ul>
 
@@ -274,8 +326,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2021/04/11/java2/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2021/04/11/java2/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2021/04/26/cloudComputing/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2021/04/26/cloudComputing/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 

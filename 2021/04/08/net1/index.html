@@ -127,89 +127,159 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(img/java/bg.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Java-面对对象</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(img/net/bg.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Net-路由协议</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h2 id="面对对象"><a href="#面对对象" class="headerlink" title="面对对象"></a>面对对象</h2><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><ul>
-<li><p>方法</p>
-<blockquote>
-<ol>
-<li><p>方法的参数传递问题</p>
+                <h1 id="路由协议"><a href="#路由协议" class="headerlink" title="路由协议"></a>路由协议</h1><h4 id="OSPF："><a href="#OSPF：" class="headerlink" title="OSPF："></a>OSPF：</h4><ul>
+<li><p>开放最短路径优先，ip传输，使用的协议号为89</p>
+</li>
+<li><p>工作流程</p>
 <ul>
-<li>传递基本数据类型和引用数据类型的区别</li>
-<li>传递可变参数</li>
+<li>发现邻居</li>
+<li>建立邻接关系</li>
+<li>交换数据库描述分组</li>
+<li>计算路由</li>
 </ul>
 </li>
-<li><p>方法的重载</p>
-<p>就是相同的方法中，只有参数不同，从而匹配不同的同名方法。</p>
+<li><p>ospfV2和ospfV3的区别</p>
+<ul>
+<li>v2是基于ipv4</li>
+<li>v3是基于ipv3</li>
+<li>二者的安全机制，以及lsa基于ip的版本不同，所以具有一些差距</li>
+</ul>
+</li>
+<li><p>特点：</p>
+<ol>
+<li>基于链路状态</li>
+<li>规模不受限制</li>
+<li>避免成环<ul>
+<li>区域内采用stp算法，生成无环路的图</li>
+<li>区域间采用水平分割，<strong>非骨干区域只能连接到骨干区域</strong></li>
+</ul>
 </li>
 </ol>
-</blockquote>
 </li>
-<li><p>构造方法（构造器）</p>
-<blockquote>
-<ul>
-<li>注意会默认调用父类的构造器，所以子类在实例化的时候要注意</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><ul>
-<li><p>理解：因为类可以被继承，并且子类可以对父类的方法进行重写，由此可以演进出以父类为模板的，子类来实现的模式，而抽象类可以作为模板</p>
-</li>
-<li><p><strong>抽象类中，抽象方法本质上是定义接口规范：即规定高层类的接口，从而保证所有子类都有相同的接口实现，这样，多态就能发挥出威力</strong>。 </p>
-</li>
-<li><p>注意事项：</p>
-<blockquote>
+<li><p>5大分组</p>
 <ol>
-<li><p>抽象类和抽象类的方法用abstract修饰,抽象方法没有代码体</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>hello分组<ul>
+<li>用于邻居发现，发送周期为10s，40s没回应即为不可达</li>
+<li>目的ip为224.0.0.0.5</li>
+</ul>
 </li>
-<li><p>继承的子类必须重写抽象类的所有方法</p>
-</li>
-<li><p>有抽象方法的类必须是抽象类，抽象类的方法不一定是抽象方法</p>
-</li>
+<li>数据库描述分组</li>
+<li>链路状态请求分组</li>
+<li>链路状态宣告分组（LSU），进行洪范发送</li>
+<li>链路状态确认</li>
 </ol>
-</blockquote>
+</li>
+<li><p>区域内的DR，BDR</p>
+<ul>
+<li>通过内部选举出DR，BDR，让非dr&#x2F;bdr的路由器和其进行建立邻接关系，从而减小了网络的开销</li>
+<li>选举规则：首先根据优先级大的为dr（路由器默认为1，为0 的不能作为DR&#x2F;BDR）相同优先级的情况下比较  router-id</li>
+</ul>
+</li>
+<li><p>区域的划分：</p>
+<ul>
+<li>骨干区域</li>
+<li>标准区域</li>
+<li>存根区域（末梢区域）</li>
+<li>完全存根区域</li>
+<li>非存根区域</li>
+</ul>
+</li>
+<li><p>ospf需要的三张表</p>
+<ol>
+<li>路由表</li>
+<li>邻接表</li>
+<li>数据库信息表</li>
+</ol>
+</li>
+<li><p>LSA的分类  总共有11种，但是因为报文编码的问题，有的交换机不支持，所以常用的有6种</p>
+<ul>
+<li><p>总共有六大类</p>
+<ul>
+<li><ol>
+<li>区域内所有路由器都可以产生    <strong>描述路由器的链路状态</strong></li>
+<li>区域内的DR产生                         <strong>用于宣告区域内的路由</strong></li>
+<li>区域捏的ABR产生                      <strong>产生的是路由信息，不是链路状态信息，描述区域间的路由</strong></li>
+<li>ABR产生                                     告诉外部路由位置</li>
+<li>ABR产生                                     宣告链路外的路由信息</li>
+<li>ASBR产生                                   描述区域外的路由</li>
+</ol>
 </li>
 </ul>
-<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><ul>
-<li><p>本质：比抽象类还要抽象的纯抽象接口 ，<strong>一个抽象类没有字段，所有方法全部都是抽象方法的抽象类</strong></p>
-</li>
-<li><p>default方法？  <strong>接口新增方法，无需重写全部子类</strong></p>
-</li>
-<li><p>接口内部除了方法，还可以存在静态变量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MALE</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">FEMALE</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">但可以被简写</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="comment">// 编译器会自动加上public statc final:</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">MALE</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">FEMALE</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="包"><a href="#包" class="headerlink" title="包"></a>包</h4><ul>
-<li>包没有父子关系。java.util和java.util.zip是不同的包，两者没有任何继承关系。</li>
-</ul>
-<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><ul>
-<li>通过private将变量隐藏，再通过方法进行操作</li>
-</ul>
-<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><ul>
-<li><p>使用extends关键字进行类的继承</p>
-</li>
-<li><p>super关键字</p>
-<blockquote>
-<p>子类构造器第一行有默认super（）调用父类的构造器，所以继承时，子类的构造器要注意super参数的传递问题</p>
-</blockquote>
-</li>
-<li><p><strong>向上转型和向下转型</strong></p>
-<p>向上转型：父类类型的变量指向子类的实例，是安全的</p>
-<p>向下转型：实际上是强制类型转换，不安全，需要进行instanceof进行判断后才行，否则报ClassCastException 错误</p>
-</li>
-<li><p><strong>方法的重写</strong></p>
-<p>就是子类中重新编辑父类中的某个方法，子父类中的方法要严格相同，不相同就是重载</p>
 </li>
 </ul>
-<h4 id="多态："><a href="#多态：" class="headerlink" title="多态："></a>多态：</h4><ul>
-<li><p>多态体现为<strong>父类引用变量指向子类对象</strong>。</p>
-<p><strong>Java的实例方法调用是基于运行时的实际类型的动态调用，而非变量的声明类型。</strong> </p>
 </li>
-<li><p><strong>多态具有一个非常强大的功能，就是允许添加更多类型的子类实现功能扩展，却不需要修改基于父类的代码。</strong></p>
+</ul>
+<h4 id="BGP："><a href="#BGP：" class="headerlink" title="BGP："></a>BGP：</h4><ul>
+<li><p>BGP是建立在TCP之上的  端口号为179</p>
+</li>
+<li><p>特点：</p>
+<p>（1）BGP是一种外部网关协议，其着眼点不在于发现和计算路由，而在于控制路由的传播和选择最佳路由；</p>
+<p>（2）BGP使用TCP作为其传输层协议（端口号179）,提高了协议的可靠性； </p>
+<p>（3）BGP是一种距离矢量路由协议，在设计上就避免了环路的发生；</p>
+<p>（4）BGP提供了丰富的路由策略，能够实现路由的灵活过滤和选择； </p>
+<p>（5）BGP采用触发式增量更新，而不是周期性的更新；</p>
+</li>
+<li><p>基本概念：</p>
+<ul>
+<li>BGP发言人</li>
+<li>BGP对等体<ul>
+<li>EBGP（不同的AS）</li>
+<li>IBGP（相同同的AS）</li>
+<li><strong>关于建立邻居关系：</strong>建立IBGP邻居关系是时，<strong>一般使用loopback接口的IP地址</strong>，因为loopback接口开启后一直处于UP状态，只要保证路由可达，邻居关系就会处于稳定状态。而建立EBGP邻居关系时，<strong>一般使用直接接口的IP地址</strong>，因为EBGP是跨AS建立邻居关系，邻居关系建立之前非直连接口之间的路由不可达</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对等体建立过程</p>
+<ul>
+<li>TCP建立连接</li>
+<li>发送open报文<ul>
+<li>open报文内容：<ul>
+<li>自身AS</li>
+<li>版本：通常为4</li>
+<li>hold time</li>
+<li>router id</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>keepalive报文（用于保持连接）</li>
+<li>路由通告</li>
+</ul>
+</li>
+<li><p>对等体建立的地址为回环地址，因为属于逻辑接口，稳定</p>
+</li>
+<li><p>BGP报文：</p>
+<ul>
+<li>BGP存在5种不同类型的报文，分别是：<ul>
+<li>open：用于协商参数 </li>
+<li>update： 传递路由信息，可以用来发布和撤销路由 </li>
+<li>notification：当BGP检测到错误状态时，就会向对等体发送Notification报文，告知对端错误，之后BGP连接会立即中断。 </li>
+<li>keepalive：双方相互发送keepalive报文，收到对方的keepalive报文后对等体建立成功，同时后续定期发送keepalive报文用于保持连接。 </li>
+<li>route-refresh。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>BGP报文</p>
+<ul>
+<li>报文头<ol>
+<li>mark   全是1 用来标记边界</li>
+<li>lenth</li>
+<li>type    用来指明报文类型</li>
+</ol>
+</li>
+<li>报文体</li>
+</ul>
+</li>
+<li><p>6种状态机</p>
+</li>
+<li><p><img src="https://wx2.sinaimg.cn/mw690/008srJVCly1h0q0rpv27mj30nt0bj0ti.jpg"></p>
 </li>
 </ul>
 
@@ -274,8 +344,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2021/04/11/java2/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2021/04/11/java2/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2021/04/08/net1/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2021/04/08/net1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
