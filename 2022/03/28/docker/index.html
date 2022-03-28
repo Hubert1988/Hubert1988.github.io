@@ -1,0 +1,550 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.1.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">TOP</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/java/">java</a></li><li><a class="category-link" href="/categories/other/">other</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="关于本人">
+		                关于本人
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="生活分享">
+		                生活分享
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 ></h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li><p>是什么</p>
+<p>是一款容器引擎，是一个用于开发，交付和运行应用程序的开放平台 </p>
+</li>
+<li><p>作用</p>
+<p>Docker 可以让开发者<strong>打包他们的应用以及依赖包到一个轻量级、可移植的容器中</strong>，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。 </p>
+<p>（应用和相关依赖环境一起打包到容器当中）<strong>解决环境依赖，提高开发效率</strong></p>
+</li>
+<li><p>三要素</p>
+<ol>
+<li><p>镜像</p>
+<blockquote>
+<ul>
+<li><p>是什么？</p>
+<p>是一个软件包，该包打包好运行环境，是创造容器的一个模板。是rootfs</p>
+</li>
+<li><p>特点</p>
+<p>镜像层只能可读</p>
+</li>
+<li><p>原理</p>
+<p>UnionFS（联合文件系统），Docker的镜像底层基础是联合文件系统，改系统的特点是支持多层的叠加文件系统，就像花卷一样，Docker可以利用该特点<strong>（分层技术）</strong>来进行创建特定的镜像</p>
+</li>
+<li><p>镜像采用分层技术的优点</p>
+<p>镜像分层最大的一个好处就是共享资源，方便复制迁移，就是为了复用。 </p>
+<p>以及功能可扩展性</p>
+</li>
+<li><p>镜像和容器的关系</p>
+<p>类比java，镜像是类，容器是实例</p>
+<p><strong>镜像只能可读，但是容器可操作，而镜像到容器的这个“实例化”的过程是在镜像层上添加容器层</strong></p>
+</li>
+<li><p>虚悬镜像（dangling images）</p>
+<p>就是仓库名和tag标签为空的镜像</p>
+<p>相关操作</p>
+<ul>
+<li><p>查看虚悬镜像</p>
+<p>docker image ls -f dangling&#x3D;true</p>
+</li>
+<li><p>删除虚悬镜像</p>
+<p>docker image prune</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>容器</p>
+<ul>
+<li>本质是一个进程</li>
+</ul>
+</li>
+<li><p>仓库</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">+-----+-----+-----+-----+                                   +-----+-----+-----+-----+</span><br><span class="line">|App A|App B|App C|App D|     +-----+-----+-----+-----+     |App A|App B|App C|App D|</span><br><span class="line">+-----+-----+-----+-----+     |App A|App B|App C|App D|     +-----+-----+-----+-----+</span><br><span class="line">|+---------------------+|     +-----+-----+-----+-----+     |Guest|Guest|Guest|Guest|</span><br><span class="line">||   Runtime Library   ||     |Lib A|Lib B|Lib C|Lib D|     | OS0 | OS1 | OS2 | OS3 |</span><br><span class="line">|+---------------------+|     +-----+-----+-----+-----+     +-----+-----+-----+-----+</span><br><span class="line">||       Kernel        ||     |    Container Engine   |     |        Hypervisor     |</span><br><span class="line">|+---------------------+|     +-----------------------+     +-----------------------+</span><br><span class="line">|   Operating System    |     |         Host OS       |     |         Host OS       |</span><br><span class="line">+-----------------------+     +-----------------------+     +-----------------------+</span><br><span class="line">|       Hardware        |     |        Hardware       |     |        Hardware       |</span><br><span class="line">+-----------------------+     +-----------------------+     +-----------------------+</span><br><span class="line">    Physical Machine                  Container                 Type II Hypervisor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据卷</p>
+<ul>
+<li><p>是什么？</p>
+<p>是一个存储文件，存储docker容器产生的数据</p>
+<p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Docker&spm=1001.2101.3001.7020">Docker</a>将运用与运行的环境打包形成容器运行， Docker容器产生的数据，如果不通过docker commit生成新的镜像，使得数据做为镜像的一部分保存下来， 那么当容器删除后，数据自然也就没有了。 为了能保存数据在Docker中我们使用卷。</p>
+</li>
+<li><p>作用</p>
+<p><strong>卷的设计目的就是数据的持久化，完全独立于容器的生存周期，因此Docker不会在容器删除时删除其挂载的数据卷。</strong> </p>
+</li>
+<li><p>特点</p>
+<ol>
+<li>数据卷可在容器之间共享或重用数据</li>
+<li>卷中的更改可以直接生效</li>
+<li>数据卷中的更改不会包含在镜像的更新中</li>
+<li>数据卷的生命周期一直持续到没有容器使用它为止</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="理解原理"><a href="#理解原理" class="headerlink" title="理解原理"></a>理解原理</h2><ul>
+<li><p><strong>容器的本质是一种特殊的进程</strong> </p>
+</li>
+<li><p><strong>容器本身没有价值，有价值的是“容器编排</strong> ，容器本身是一个底层技术，解决了应用打包这个问题，但是技术要落地到应用，要落地到Pass平台，所以如何利用容器进行商业化的应用才是真正的价值。</p>
+</li>
+<li><p>容器的<strong>隔离</strong>和<strong>资源限制</strong>实现</p>
+<ol>
+<li><p>namespace</p>
+<p>相当于一个障眼法，利用linux的namespace机制实现隔离，而一个个docker实际上是一个个特殊的进程</p>
+<p><strong>Namespace 技术实际上修改了应用进程看待整个计算机“视 图”，即它的“视线”被操作系统做了限制，只能“看到”某些指定的内容。但对于宿主机来 说，这些被“隔离”了的进程跟其他进程并没有太大区别。</strong> </p>
+<p>namespace的实现有很多类，比如PID，mount，network等方式（这就是 Mount Namespace 跟其他 Namespace 的使用略有不同的地方：它对容器进程视图的 改变，一定是伴随着挂载操作（mount）才能生效。 ）</p>
+</li>
+<li><p>cgroups</p>
+<p>Linux Cgroups 的全称是 Linux Control Group。它最主要的作用，就是限制一个进程组能够 使用的资源上限，包括 CPU、内存、磁盘、网络带宽等等。 </p>
+<p><strong>在 Linux 中，Cgroups 给用户暴露出来的操作接口是文件系统，即它以文件和目录的方式组织 在操作系统的 &#x2F;sys&#x2F;fs&#x2F;cgroup 路径下</strong> </p>
+<p>在 &#x2F;sys&#x2F;fs&#x2F;cgroup目录下又很多资源，比如CPU，内存，如果我们在对应文件里面创建一个进程对应的文件，文件会自动创建一些目录，对响应的目录进行设置即可对资源进行限制，最后在将进程的PID写入task文件即可</p>
+</li>
+</ol>
+</li>
+<li><p>容器的安全问题</p>
+<p>在生产环境中，没有人敢把运行在物理机上的 Linux 容器直接暴露到公网上。因为本质来讲就是一个进程，公用同一个内核，所以安全性不高。</p>
+</li>
+</ul>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h3><ul>
+<li><p>docker run   创建并运行容器</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -it ubuntu /bin/bash</span><br><span class="line">-i: 交互式操作。</span><br><span class="line">-t: 终端。</span><br><span class="line">ubuntu: ubuntu 镜像。</span><br><span class="line">/bin/bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 /bin/bash。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ docker run -itd --name ubuntu-test ubuntu /bin/bash</span><br><span class="line">在大部分的场景下，我们希望 docker 的服务是在后台运行的，我们可以过 -d 指定容器的运行模式。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--name  创建名称</span><br><span class="line">-d 后台运行</span><br><span class="line">-P 自动端口映射</span><br><span class="line">-p 指定端口映射 （默认为tcp）                -p 127.0.0.1：5000:5000</span><br><span class="line">runoob@runoob:~$ docker run -d -p 127.0.0.1:5000:5000/udp training/webapp python app.py  （绑定UDP）</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>docker stop   停止容器</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker stop &lt;容器 ID&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>docker start   运行容器</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker start  &lt;容器 ID&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>docker ps       查看当前容器</p>
+</li>
+<li><p>docker exec  进入当前容器</p>
+</li>
+</ul>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; &gt; &gt; &gt; docker exec -it &lt;容器 ID&gt;  /bin/bash</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p>相关信息总结</p>
+<p><strong>CONTAINER ID:</strong> 容器 ID。</p>
+<p><strong>IMAGE:</strong> 使用的镜像。</p>
+<p><strong>COMMAND:</strong> 启动容器时运行的命令。</p>
+<p><strong>CREATED:</strong> 容器的创建时间。</p>
+<p><strong>STATUS:</strong> 容器状态。</p>
+<ul>
+<li>状态有7种：<ul>
+<li>created（已创建）</li>
+<li>restarting（重启中）</li>
+<li>running 或 Up（运行中）</li>
+<li>removing（迁移中）</li>
+<li>paused（暂停）</li>
+<li>exited（停止）</li>
+<li>dead（死亡）</li>
+</ul>
+</li>
+</ul>
+<p><strong>PORTS:</strong> 容器的端口信息和使用的连接类型（tcp\udp）。</p>
+<p><strong>NAMES:</strong> 自动分配的容器名称。</p>
+</li>
+<li><p>docker export    导出容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker export 1e560fca3906 &gt; ubuntu.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>docker import  导入容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat docker/ubuntu.tar | docker import - test/ubuntu:v1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dockert rm   删除容器</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker rm -f 1e560fca3906</span><br><span class="line"></span><br><span class="line">下面的命令可以清理掉所有处于终止状态的容器。</span><br><span class="line">$ docker container prune</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>docker port   查看容器端口映射</li>
+</ul>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; &gt; &gt; &gt; runoob@runoob:~$ docker port bf08b7f2cd89</span><br><span class="line">&gt; &gt; &gt; &gt; &gt; 5000/tcp -&gt; 0.0.0.0:5000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>docker log  查看容器日志</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runoob@runoob:~$ docker logs -f bf08b7f2cd89</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>容器互联</p>
+<blockquote>
+<ol>
+<li><p>创建互联网络</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker network create -d bridge test-net</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将容器添加到互联网络</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -itd --name test1 --network test-net ubuntu /bin/bash</span><br></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h3><ul>
+<li><p>docker images     </p>
+<p>查看本地镜像仓库</p>
+</li>
+<li><p>docker commit</p>
+<p>创建某镜像的副本，成为新的容器</p>
+</li>
+<li><p>docker pull</p>
+<p>下载镜像</p>
+</li>
+<li><p>docker research xxx</p>
+<p>搜索镜像</p>
+</li>
+<li><p>docker   rmi </p>
+<p>删除镜像</p>
+</li>
+<li><p>创建镜像两种方式</p>
+<ol>
+<li><p>通过进入容器进行创建（<strong>实际上是创建文件的副本</strong>）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">runoob<span class="meta">@runoob</span>:~$ docker commit -m=<span class="string">&quot;has update&quot;</span> -a=<span class="string">&quot;runoob&quot;</span> e218edb10161 runoob/ubuntu:v2</span><br><span class="line">sha256:70bf1840fd7c0d2d8ef0a42a817eb29f854c1af8f7c59fc03ac7bdee9545aff8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>通过DockerFile进行创建</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">runoob<span class="meta">@runoob</span>:~$ docker build -t runoob/centos:<span class="number">6.7</span> .</span><br><span class="line">Sending build context to Docker daemon <span class="number">17.92</span> kB</span><br><span class="line">Step <span class="number">1</span> : FROM centos:<span class="number">6.7</span></span><br><span class="line"> ---&amp;gt; d95b5ca17cc3</span><br><span class="line">Step <span class="number">2</span> : MAINTAINER Fisher <span class="string">&quot;fisher@sudops.com&quot;</span></span><br><span class="line"> ---&amp;gt; Using cache</span><br><span class="line"> ---&amp;gt; 0c92299c6f03</span><br><span class="line">Step <span class="number">3</span> : RUN /bin/echo <span class="string">&#x27;root:123456&#x27;</span> |chpasswd</span><br><span class="line"> ---&amp;gt; Using cache</span><br><span class="line"> ---&amp;gt; 0397ce2fbd0a</span><br><span class="line">Step <span class="number">4</span> : RUN useradd runoob</span><br><span class="line">......</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>docker tag  </p>
+<p>创建镜像标签</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runoob@runoob:~$ docker tag 860c279d2fec runoob/centos:dev</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="仓库操作"><a href="#仓库操作" class="headerlink" title="仓库操作"></a>仓库操作</h3><ul>
+<li>docker login</li>
+<li>docker logout</li>
+<li>docker pull </li>
+<li>docker research</li>
+<li>docker  push</li>
+</ul>
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><ul>
+<li><p>是什么？</p>
+<p>创建镜像的文本文件，用来指导创建镜像</p>
+<p>Dockerfile是用来构建Docker镜像的文本文件，是由一条条构建镜像所需的指令和参数构成的脚本。</p>
+</li>
+<li><p>理解：</p>
+<ol>
+<li><p>首先，创造镜像有两种方式，第一种是创建容器，在容器里面进行创建，第二种是dockerfile文本文件创建，而dockerfile创建的本质是使用脚本自动化的实现第一种模式。</p>
+</li>
+<li><p>为什么要创建镜像？</p>
+<p>不同生产环境下具有不同的底层软件支持，所以要创建一个合适的镜像，而不是仅仅使用通用的，说白了就是<strong>搭建合适的具有相关功能的镜像</strong></p>
+</li>
+</ol>
+</li>
+<li><p>创建流程</p>
+<ol>
+<li><p>docker从基础镜像运行一个容器</p>
+</li>
+<li><p>执行一条指令并对容器作出修改</p>
+</li>
+<li><p>执行类似docker commit的操作提交一个新的镜像层</p>
+</li>
+<li><p>docker再基于刚提交的镜像运行一个新容器</p>
+</li>
+<li><p>执行dockerfile中的下一条指令直到所有指令都执行完成</p>
+<p><strong>就像做花卷一样，一层一层的叠上去</strong></p>
+</li>
+</ol>
+</li>
+<li><p>关键字</p>
+<ul>
+<li><p>FROM                     基于那个基础镜像</p>
+</li>
+<li><p>MAINTAINER        相关维护者的信息</p>
+</li>
+<li><p>RUN                        执行的相关命令————-》等同于在终端执行的shell命令            <strong>（在docker build的时候执行）</strong></p>
+</li>
+<li><p>EXPOSE                  对外的是什么接口</p>
+</li>
+<li><p>WORDIR                 终端默认登录的工作目录</p>
+</li>
+<li><p>USER                       指定该镜像以什么样的用户去执行，如果都不指定，默认是root</p>
+</li>
+<li><p>ENV                           指定环境变量（WORKDIR $MY_PATH ）</p>
+</li>
+<li><p>ADD                           将宿主机目录下的文件拷贝进镜像且会自动处理URL和解压tar压缩包</p>
+</li>
+<li><p>COPY                       将宿主机目录下的文件拷贝进镜像</p>
+</li>
+<li><p>VOLUME                    容器数据卷，用于数据保存和持久化工作</p>
+</li>
+<li><p>CMD               Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换    <strong>（在docker run的时候执行）</strong></p>
+</li>
+<li><p>ENTRYPOINT    类似于 CMD 指令，但是ENTRYPOINT不会被docker run后面的CMD命令覆盖，而且这些命令行参数会被当作参数送给 ENTRYPOINT 指令指定的程序（<strong>未指定时为隐式声明</strong>）</p>
+<p><strong>ENTRYPOINT 和  CMD配合使用，此时的CMD的任务不是执行命令，而是传递参数，并且cmd的参数会受docker run后面的参数影响</strong></p>
+</li>
+</ul>
+</li>
+<li><p>创建步骤</p>
+<ol>
+<li><p>编写Dockerfile文件（D一定要大写，注意保留字的使用）</p>
+</li>
+<li><p>docker build -t  新镜像名称：TAG .  （注意不要忘记后面的那个点）</p>
+</li>
+<li><p>docker run -it 新镜像名字:TAG </p>
+<p>这三部对应了上面的三张图</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Docker网络"><a href="#Docker网络" class="headerlink" title="Docker网络"></a>Docker网络</h2><ul>
+<li><p>是什么</p>
+<p>就是容器之间的网络连接</p>
+</li>
+<li><p>作用</p>
+<ul>
+<li>容器间的互联和通信以及端口映射</li>
+<li>容器IP变动时候可以通过服务名直接网络通信而不受到影响</li>
+</ul>
+</li>
+<li><p>模式</p>
+<ul>
+<li><p>bridge</p>
+<p>相当于NAT，每个容器通过Docker0这个虚拟的路由器分配得到各自的IP</p>
+</li>
+<li><p>host</p>
+<p>容器和宿主机公用同一个IP地址</p>
+</li>
+<li><p>none</p>
+</li>
+<li><p>自定义</p>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2022/03/28/docker/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/03/28/docker/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
