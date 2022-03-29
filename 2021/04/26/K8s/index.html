@@ -1,0 +1,603 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.1.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">TOP</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/CloudComputing/">CloudComputing</a></li><li><a class="category-link" href="/categories/K8s/">K8s</a></li><li><a class="category-link" href="/categories/Net/">Net</a></li><li><a class="category-link" href="/categories/docker/">docker</a></li><li><a class="category-link" href="/categories/java/">java</a></li><li><a class="category-link" href="/categories/other/">other</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="关于本人">
+		                关于本人
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="生活分享">
+		                生活分享
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(img/k8s/bg.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >K8s-基础</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="K8s"><a href="#K8s" class="headerlink" title="K8s"></a>K8s</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="前置知识理解"><a href="#前置知识理解" class="headerlink" title="前置知识理解"></a>前置知识理解</h3><ul>
+<li><strong>容器的本质是一种特殊的进程</strong> </li>
+<li><strong>容器本身没有价值，有价值的是“容器编排</strong> ，容器本身是一个底层技术，解决了应用打包这个问题，但是技术要落地到应用，要落地到Pass平台，所以如何利用容器进行商业化的应用才是真正的价值。</li>
+<li>容器的<strong>隔离</strong>和<strong>资源限制</strong>实现<ol>
+<li>namespace<ul>
+<li>相当于一个障眼法，利用linux的namespace机制实现隔离，而一个个docker实际上是一个个特殊的进程</li>
+<li><strong>Namespace 技术实际上修改了应用进程看待整个计算机“视 图”，即它的“视线”被操作系统做了限制，只能“看到”某些指定的内容。但对于宿主机来 说，这些被“隔离”了的进程跟其他进程并没有太大区别。</strong> </li>
+<li>namespace的实现有很多类，比如PID，mount，network等方式（这就是 Mount Namespace 跟其他 Namespace 的使用略有不同的地方：它对容器进程视图的 改变，一定是伴随着挂载操作（mount）才能生效。 ）</li>
+</ul>
+</li>
+<li>cgroups<ul>
+<li>Linux Cgroups 的全称是 Linux Control Group。它最主要的作用，就是限制一个进程组能够 使用的资源上限，包括 CPU、内存、磁盘、网络带宽等等。 </li>
+<li><strong>在 Linux 中，Cgroups 给用户暴露出来的操作接口是文件系统，即它以文件和目录的方式组织 在操作系统的 &#x2F;sys&#x2F;fs&#x2F;cgroup 路径下</strong> </li>
+<li>在 &#x2F;sys&#x2F;fs&#x2F;cgroup目录下又很多资源，比如CPU，内存，如果我们在对应文件里面创建一个进程对应的文件，文件会自动创建一些目录，对响应的目录进行设置即可对资源进行限制，最后在将进程的PID写入task文件即可</li>
+</ul>
+</li>
+<li><strong>容器的文件系统通过chroot进行改变挂载根目录实现</strong>（还不是特别懂）</li>
+</ol>
+</li>
+<li>容器的安全问题<ul>
+<li>在生产环境中，没有人敢把运行在物理机上的 Linux 容器直接暴露到公网上。因为本质来讲就是一个进程，公用同一个内核，所以安全性不高，当然，我 后续会讲到的基于虚拟化或者独立内核技术的容器实现，则可以比较好地在隔离与性能之间做出 平衡。</li>
+</ul>
+</li>
+</ul>
+<h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><ul>
+<li>Kubernetes 是一个轻便的和可扩展的开源平台，用于管理容器化应用和服务 <strong>（用来管理和编排容器的）</strong>，可以理解为云计算的操作系统</li>
+</ul>
+<blockquote>
+<ul>
+<li><p>具体流程</p>
+<p>在k8s进行管理应用的时候，基本步骤是：<strong>创建集群，部署应用，发布应用，扩展应用，更新应用。</strong> </p>
+<ul>
+<li><p>创建集群</p>
+<p>相当于搭建环境，master节点，node节点</p>
+</li>
+<li><p>部署应用</p>
+<p>在每个pod上面部署相关的服务</p>
+</li>
+<li><p>发布应用</p>
+<p>通过service对pod的资源进行调配，从而来提供服务</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="核心组件"><a href="#核心组件" class="headerlink" title="核心组件"></a>核心组件</h3><ul>
+<li><p><strong>master</strong>：主控节点 </p>
+<ul>
+<li>API Server：集群统一入口，以restful风格进行操作，同时交给etcd存储 </li>
+<li>scheduler：节点的调度，选择node节点应用部署</li>
+<li>controller-manager：处理集群中常规后台任务，一个资源对应一个控制器</li>
+<li>etcd：存储系统，用于保存集群中的相关数据</li>
+</ul>
+</li>
+<li><p><strong>Work node</strong>：工作节点 </p>
+<ul>
+<li>Kubelet：master派到node节点代表，管理本机容器 <ul>
+<li>一个集群中每个节点上运行的代理，它保证容器都运行在Pod中</li>
+<li>负责维护容器的生命周期，同时也负责Volume(CSI) 和 网络(CNI)的管理</li>
+</ul>
+</li>
+<li>kube-proxy：提供网络代理，负载均衡等操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><ul>
+<li><h3 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h3></li>
+<li><h3 id="Volume"><a href="#Volume" class="headerlink" title="Volume"></a>Volume</h3></li>
+<li><h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3></li>
+<li><h3 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h3></li>
+<li><h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3></li>
+<li><h3 id="Label"><a href="#Label" class="headerlink" title="Label"></a>Label</h3></li>
+<li><h3 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h3></li>
+<li><h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3></li>
+</ul>
+<h2 id="搭建集群"><a href="#搭建集群" class="headerlink" title="搭建集群"></a>搭建集群</h2><h3 id="搭建方式"><a href="#搭建方式" class="headerlink" title="搭建方式"></a>搭建方式</h3><ul>
+<li>单master集群</li>
+<li>多master集群</li>
+</ul>
+<h3 id="部署方式"><a href="#部署方式" class="headerlink" title="部署方式"></a>部署方式</h3><ul>
+<li><p>Kubeadm</p>
+<blockquote>
+<ul>
+<li>kubeadm 是官方社区推出的一个用于快速部署kubernetes 集群的工具，这个工具能通过两条指令完成一个kubernetes 集群的部署： <ul>
+<li>创建一个Master 节点kubeadm init</li>
+<li>将Node 节点加入到当前集群中$ kubeadm join &lt;Master 节点的IP 和端口&gt;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>二进制搭建</p>
+<blockquote>
+<ul>
+<li><p>从github下载发行版的二进制包，手动部署每个组件，组成Kubernetes集群。</p>
+<p>Kubeadm降低部署门槛，但屏蔽了很多细节，遇到问题很难排查。如果想更容易可控，推荐使用二进制包部署Kubernetes集群，虽然手动部署麻烦点，期间可以学习很多工作原理，也利于后期维护。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="相关工具"><a href="#相关工具" class="headerlink" title="相关工具"></a>相关工具</h3><p>kubectl</p>
+<ul>
+<li>kubectl是Kubernetes集群的命令行工具，通过kubectl能够对集群本身进行管理，并能够在集群上进行容器化应用的安装和部署</li>
+</ul>
+<p>YAMl</p>
+<ul>
+<li>YAML文件：就是资源清单文件，用于资源编排 </li>
+<li>k8s 集群中对资源管理和资源对象编排部署都可以通过声明样式（YAML）文件来解决，也就是可以把需要对资源对象操作编辑到YAML 格式文件中，我们把这种文件叫做资源清单文件，通过kubectl 命令直接使用资源清单文件就可以实现对大量的资源对象进行编排部署了。一般在我们开发的时候，都是通过配置YAML文件来部署集群的。</li>
+</ul>
+<h2 id="核心概念-1"><a href="#核心概念-1" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="Pod-1"><a href="#Pod-1" class="headerlink" title="Pod"></a>Pod</h3><ul>
+<li><p>是什么</p>
+<p>是k8s的最小的单位级，里面通过有单个或者多个容器构成，Pod是它们的逻辑主机，Pod包含业务相关的多个应用容器。 </p>
+</li>
+<li><p>为什么是pod而不是容器</p>
+<p>pod的存在主要是让几个紧密连接的几个容器之间共享资源 ，以及如何运行的规范 ，如果以容器为单位则管理开销很大</p>
+</li>
+<li><p>特点</p>
+<ul>
+<li>网络共享命名空间<ul>
+<li>将业务容器添加到pause容器当中</li>
+</ul>
+</li>
+<li>共享存储卷<ul>
+<li>通过数据卷进行数据的共享存储</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>镜像拉取策略</p>
+<ul>
+<li>IfNotPresent：默认值，镜像在宿主机上不存在才拉取</li>
+<li>Always：每次创建Pod都会重新拉取一次镜像</li>
+<li>Never：Pod永远不会主动拉取这个镜像</li>
+</ul>
+</li>
+<li><p>Pod资源调度限制</p>
+<ul>
+<li>request：表示调度所需的资源</li>
+<li>limits：表示最大所占用的资源<ul>
+<li>只有满足request的要求才能被调用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Pod的重启策略</p>
+<ul>
+<li>Always：当容器终止退出后，总是重启容器，默认策略 【nginx等，需要不断提供服务】</li>
+<li>OnFailure：当容器异常退出（退出状态码非0）时，才重启容器。</li>
+<li>Never：当容器终止退出，从不重启容器 【批量任务】</li>
+</ul>
+</li>
+<li><p>Pod的健康检查</p>
+<ul>
+<li>通过探针技术<ul>
+<li>探针种类<ul>
+<li>livenessProbe</li>
+<li>指示容器是否正在运行。如果存活态探测失败，则 kubelet 会杀死容器， 并且容器将根据其重启策略决定未来。如果容器不提供存活探针， 则默认状态为 Success。</li>
+<li>readinessProbe<ul>
+<li>指示容器是否准备好为请求提供服务。如果就绪态探测失败， 端点控制器将从与 Pod 匹配的所有服务的端点列表中删除该 Pod 的 IP 地址。 初始延迟之前的就绪态的状态值默认为 Failure。 如果容器不提供就绪态探针，则默认状态为 Success。</li>
+</ul>
+</li>
+<li>startupProbe<ul>
+<li>指示容器中的应用是否已经启动。如果提供了启动探针，则所有其他探针都会被 禁用，直到此探针成功为止。如果启动探测失败，kubelet 将杀死容器，而容器依其 重启策略进行重启。 如果容器没有提供启动探测，则默认状态为 Success。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>检测结果<ul>
+<li>Success（成功）<ul>
+<li>容器通过了诊断。</li>
+</ul>
+</li>
+<li>Failure（失败）<ul>
+<li>容器未通过诊断。</li>
+</ul>
+</li>
+<li>Unknown（未知）<ul>
+<li>诊断失败，因此不会采取任何行动。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>探针的检查机制<ul>
+<li>exec<ul>
+<li>在容器内执行指定命令。如果命令退出时返回码为 0 则认为诊断成功。</li>
+</ul>
+</li>
+<li>grpc<ul>
+<li>使用 gRPC 执行一个远程过程调用。 目标应该实现 gRPC健康检查。 如果响应的状态是 “SERVING”，则认为诊断成功。 gRPC 探针是一个 alpha 特性，只有在你启用了 “GRPCContainerProbe” 特性门控时才能使用。</li>
+</ul>
+</li>
+<li>httpGet<ul>
+<li>对容器的 IP 地址上指定端口和路径执行 HTTP GET 请求。如果响应的状态码大于等于 200 且小于 400，则诊断被认为是成功的。</li>
+</ul>
+</li>
+<li>tcpSocket<ul>
+<li>对容器的 IP 地址上的指定端口执行 TCP 检查。如果端口打开，则诊断被认为是成功的。 如果远程系统（容器）在打开连接后立即将其关闭，这算作是健康的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Pod的资源调度策略</p>
+<ul>
+<li><p>根据资源的调度限制request进行调配</p>
+</li>
+<li><p>根据nodeSelector标签进行调度</p>
+</li>
+<li><p>根据点亲和性 <strong>nodeAffinity</strong> </p>
+<ul>
+<li>硬亲和性：约束条件必须满足</li>
+<li>软亲和性：尝试满足，不保证</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>污点和污点容忍</p>
+<ul>
+<li><p>概述：</p>
+<p>在调度pod的时候，有request，nodeSelector和nodeAffinity对nod的策略调度，但是pod最终归属是在某个node节点上，所以也可以通过对node的属性进行相关设置，从而侧面实现pod的调度</p>
+<ul>
+<li>Taint 污点：节点不做普通分配调度，是节点属性</li>
+</ul>
+</li>
+<li><p>使用场景</p>
+<ul>
+<li>最大的应用就是master节点，因为里面不能有pod</li>
+<li>专用节点【限制ip】</li>
+<li>配置特定硬件的节点【固态硬盘】</li>
+<li>基于Taint驱逐【在node1不放，在node2放】</li>
+</ul>
+</li>
+<li><p>相关操作</p>
+<ol>
+<li><p>查看污点情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe node k8smaster | grep Taint</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>NoSchedule：一定不被调度</li>
+<li>PreferNoSchedule：尽量不被调度【也有被调度的几率】</li>
+<li>NoExecute：不会调度，并且还会驱逐Node已有Pod</li>
+</ul>
+</li>
+<li><p>如何对node添加污点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl taint node [node] key=value:污点的三个值</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除污点</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl taint node k8snode1 env_role:NoSchedule-</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="Controller-1"><a href="#Controller-1" class="headerlink" title="Controller"></a>Controller</h3><ul>
+<li><p>是什么</p>
+<p>Controller是在集群上<strong>管理和运行容器的对象</strong> </p>
+</li>
+<li><p>Pod和Controller的关系</p>
+<p>controller就是pod的控制器，用来控制pod的相关功能，比如回滚，    弹性伸缩等等</p>
+<p>Pod 和 Controller之间是通过label标签来建立关系，同时Controller又被称为控制器工作负载</p>
+</li>
+<li><p>种类</p>
+<ul>
+<li><p>deployment</p>
+</li>
+<li><p>Statefulset</p>
+</li>
+<li><p>DaemonSet</p>
+</li>
+<li><p>Job</p>
+</li>
+<li><p>CronJob</p>
+</li>
+<li><p>Replication Controller</p>
+</li>
+<li><p>Replica Set</p>
+</li>
+</ul>
+</li>
+<li><p>Deployment</p>
+<ul>
+<li><p>概述</p>
+<p>是controller的一种</p>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>Deployment控制器可以部署<strong>无状态应用</strong></li>
+<li>管理Pod和ReplicaSet</li>
+<li>部署，滚动升级等功能</li>
+<li>应用场景：web服务，微服务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Statefulset</p>
+<p>主要用于部署<strong>有状态的pod</strong></p>
+<p>适合StatefulSet的业务包括数据库服务MySQL 和 PostgreSQL，集群化管理服务Zookeeper、etcd等有状态服务 </p>
+</li>
+<li><p>DaemonSet</p>
+<ul>
+<li>DaemonSet 即后台支撑型服务，主要是用来部署守护进程 </li>
+<li>典型的后台支撑型服务包括：存储、日志和监控等。在每个节点上支撑K8S集群运行的服务。</li>
+</ul>
+</li>
+<li><p>Job</p>
+<ul>
+<li>Job也即一次性任务 </li>
+<li>Job管理的Pod根据用户的设置把任务成功完成就自动退出了。</li>
+</ul>
+</li>
+<li><p>CronJob</p>
+<ul>
+<li>定时任务</li>
+</ul>
+</li>
+<li><p>Replication Controller</p>
+<ul>
+<li>RC是K8S中较早期的技术概念，只适用于长期伺服型的业务类型，比如控制Pod提供高可用的Web服务。</li>
+</ul>
+</li>
+<li><p>Replica Set</p>
+<ul>
+<li>Replica Set 检查 RS，也就是副本集。RS是新一代的RC，提供同样高可用能力，区别主要在于RS后来居上，能够支持更多种类的匹配模式。副本集对象一般不单独使用，而是作为Deployment的理想状态参数来使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="Service-1"><a href="#Service-1" class="headerlink" title="Service"></a>Service</h3><ul>
+<li><p>是什么</p>
+<p>是一个为客户端访问pod的一个对象</p>
+</li>
+<li><p>作用</p>
+<ul>
+<li><p>要稳定地提供服务需要<strong>服务发现</strong>和<strong>负载均衡能力</strong> </p>
+</li>
+<li><p>服务发现</p>
+<ul>
+<li>因为Pod每次创建都对应一个IP地址，而这个IP地址是短暂的，每次随着Pod的更新都会变化，假设当我们的前端页面有多个Pod时候，同时后端也多个Pod，这个时候，他们之间的相互访问，就需要通过注册中心，拿到Pod的IP地址，然后去访问对应的Pod</li>
+</ul>
+</li>
+<li><p>负载均衡</p>
+<ul>
+<li>页面前端的Pod访问到后端的Pod，中间会通过Service一层，而Service在这里还能做负载均衡，负载均衡的策略有很多种实现策略，例如：<ul>
+<li>随机</li>
+<li>轮询</li>
+<li>响应比</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Service常用类型有三种</p>
+<ul>
+<li>ClusterIp：集群内部访问</li>
+<li>NodePort：对外访问应用使用</li>
+<li>LoadBalancer：对外访问应用使用，公有云</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2021/04/26/K8s/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2021/04/26/K8s/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

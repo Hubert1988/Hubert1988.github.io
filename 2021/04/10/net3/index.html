@@ -1,0 +1,645 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.1.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">TOP</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/CloudComputing/">CloudComputing</a></li><li><a class="category-link" href="/categories/K8s/">K8s</a></li><li><a class="category-link" href="/categories/Net/">Net</a></li><li><a class="category-link" href="/categories/docker/">docker</a></li><li><a class="category-link" href="/categories/java/">java</a></li><li><a class="category-link" href="/categories/other/">other</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="关于本人">
+		                关于本人
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="生活分享">
+		                生活分享
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(img/net/bg.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Net-网络基础</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="TCP-x2F-IP体系知识"><a href="#TCP-x2F-IP体系知识" class="headerlink" title="TCP&#x2F;IP体系知识"></a>TCP&#x2F;IP体系知识</h2><h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><ul>
+<li><p>实际上是和应用打交道，是对相互通信进程之间交换的信息的一种规范</p>
+</li>
+<li><p>应用层协议：就是规定了交换信息的格式</p>
+<h4 id="具体协议"><a href="#具体协议" class="headerlink" title="具体协议"></a>具体协议</h4><ul>
+<li><p>HTTP协议</p>
+<ul>
+<li>用于web的一种协议</li>
+<li>请求格式</li>
+<li>响应格式</li>
+</ul>
+</li>
+<li><p>HTTPS</p>
+<ul>
+<li>HTTP+TLS</li>
+<li>TLS加密方式：<ul>
+<li>对称加密                   ：收发同时使用公钥进行加解密</li>
+<li>非对称加密                ： 公钥加密，私钥解密。而私钥只有自己知道   <strong>（耗费资源）</strong></li>
+</ul>
+</li>
+<li>加密过程     <ol>
+<li>首先通过非对称方式的到会话秘钥，这个秘钥只有收发两方知道</li>
+<li>在通过会话秘钥进行对称加密</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>DHCP协议</p>
+<ul>
+<li><p>动态主机配置协议</p>
+</li>
+<li><p>作用： <strong>动态的为主机配置ip，网关以及dns服务器地址</strong></p>
+</li>
+<li><p>配置类型</p>
+<ul>
+<li>手动配置</li>
+<li>自动配置</li>
+<li>动态配置</li>
+</ul>
+</li>
+<li><p>请求流程：（第一次分配）</p>
+<ol>
+<li><p>客户端发送DHCP_DICOVER</p>
+<ul>
+<li>发送广播，源ip为0.0.0.0（如果没有回应，依次以2 4 8 16）发送</li>
+<li>如果得到了地址就成功，没有得到会自己设置个临时地址，然后个5分钟广播一次</li>
+</ul>
+</li>
+<li><p>服务器发送DHCP_Offer</p>
+<ul>
+<li>此时服务器端仍然发送的是广播，但mac会封装对方的mac以及用XID编号进行封包</li>
+</ul>
+</li>
+<li><p>客户端发送DHCP_Request</p>
+<ul>
+<li>客户端对可能发来的多条offer选择一个，仍然以源ip为0.0.0.0 进行发送广播</li>
+</ul>
+</li>
+<li><p>服务器端DHCP_ACK</p>
+<ul>
+<li>服务器端对其进行确认</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>通过租约和续约来进行ip地址的请求</p>
+</li>
+<li><p>第n次登陆后，只需要发送DHCP—Request进行确认即可</p>
+</li>
+</ul>
+</li>
+<li><p>FTP</p>
+<ul>
+<li>文件传输协议</li>
+<li>具有两个TCP连接   21端口控制连接       20端口数据连接</li>
+<li>传输模式<ol>
+<li>主动传输</li>
+<li>被动传输</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>DNS</p>
+<ul>
+<li>查询过程<ul>
+<li>首先在电脑本地的缓存器查找</li>
+<li>再通过<strong>递归</strong>查询本地dns服务器</li>
+<li>本地dns服务器和其他服务器进行<strong>迭代</strong>查询</li>
+</ul>
+</li>
+<li>域名结构<ul>
+<li>顶级域名</li>
+<li>二级域名<ul>
+<li>每个分级的服务器都有缓存</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h3><ul>
+<li>连接端到端</li>
+</ul>
+<h4 id="TCP：6"><a href="#TCP：6" class="headerlink" title="TCP：6"></a>TCP：6</h4><ul>
+<li><p>个人理解：在网络传输的过程中，起到的类似于控制和规划的作用，让网络传输的效率达到最大</p>
+</li>
+<li><p>三次握手，四次挥手</p>
+</li>
+<li><p>TCP窗口</p>
+</li>
+<li><p>发送窗口影响机制（多包）</p>
+<ul>
+<li>接收窗口大小</li>
+<li>网络拥塞程度<ul>
+<li>该因素反应的是网络的堵塞程度，会有拥塞窗口来限制MSS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>可靠传输</p>
+<ul>
+<li>利用滑动窗口机制，通过发送窗口和接收串口的反复确认来可靠传输</li>
+</ul>
+</li>
+<li><p>流量控制</p>
+<ul>
+<li><p>目的：防止接收方接收数据溢出</p>
+</li>
+<li><p>原理：</p>
+<p>通过滑动窗口机制进行流量控制</p>
+<p>主要是通过接收方的rwnd对发送方的发送窗口大小进行调整，从而不让发送方发送过快而导致接收方溢出</p>
+</li>
+</ul>
+</li>
+<li><p>拥塞控制</p>
+<ul>
+<li>原理：通过设置拥塞窗口的值来限制发送窗口的大小</li>
+<li>作用：让网络的吞吐量一直保持最大值</li>
+<li>算法：<ol>
+<li>慢开始</li>
+<li>拥塞避免</li>
+<li>快重传                  收到连续三个请求后，不会等待重传计数器的时间，直接发送报文段</li>
+<li>快恢复                  收到三个确认后吧慢门限减半</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="UDP：17"><a href="#UDP：17" class="headerlink" title="UDP：17"></a>UDP：17</h4><h4 id="TCP和UDP区别："><a href="#TCP和UDP区别：" class="headerlink" title="TCP和UDP区别："></a>TCP和UDP区别：</h4><ol>
+<li>TCP面向连接，UDP无连接</li>
+<li>TCP一对一，UDP支持一对一，一对多，多对一</li>
+<li>TCP是面向字节流，UDP是直接封装头部</li>
+<li>TCP可靠，UDP不可靠</li>
+<li>TCP首部20到60字节，UDP只有8个字节</li>
+</ol>
+<h3 id="网络层-："><a href="#网络层-：" class="headerlink" title="网络层  ："></a>网络层  ：</h3><ul>
+<li>通过IP地址实现各个网络的互联</li>
+</ul>
+<h4 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h4><ul>
+<li>功能<ul>
+<li>路由选择<ul>
+<li>通过相关协议的选择，rip，ospf，bgp等实现相关路由的计算得出路由表</li>
+</ul>
+</li>
+<li>功能转发<ul>
+<li>通过查找路由表对相关数据包进行转发</li>
+</ul>
+</li>
+<li>路由表： 目的网络   下一跳      接口    度量值</li>
+</ul>
+</li>
+</ul>
+<h4 id="ICMP（网际控制报文协议）"><a href="#ICMP（网际控制报文协议）" class="headerlink" title="ICMP（网际控制报文协议）"></a>ICMP（网际控制报文协议）</h4><ul>
+<li><p>干什么：用来发送<strong>差错报告报文和询问报文</strong></p>
+</li>
+<li><p>差错报文分类</p>
+</li>
+<li><p>询问报文：</p>
+<ol>
+<li>回送请求和回答</li>
+<li>时间戳请求和回答</li>
+</ol>
+</li>
+<li><p>应用</p>
+<ol>
+<li>ping<ul>
+<li>ping的使用<ol>
+<li>检查网络的连通性</li>
+<li>检查网络连通的质量（拥塞程度）<ul>
+<li>可以 ping  -t   一直对目标网络进行测试，查看网络情况，比如看网络的拥塞程度和连接程度</li>
+</ul>
+</li>
+<li>判断目的主机的系统类型，因此一般TTL值：<ul>
+<li>100~130ms之间，Windows系统 ；</li>
+<li>240~255ms之间，UNIX&#x2F;Linux系统。</li>
+</ul>
+</li>
+<li>ping -r 显示出路径</li>
+<li>ping -n 设置平均发送的包</li>
+<li>ping -l 6550 设置ping发的包的大小</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>tracert<ul>
+<li>原理：通过逐次增加报文的ttl时间然后通过差错返回报文进行判断</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h4><ul>
+<li>是什么<ul>
+<li>地址解析协议（Address Resolution Protocol）    通过ip地址来解析mac地址</li>
+</ul>
+</li>
+<li>分类<ul>
+<li>静态            手动配置</li>
+<li>动态            自动更新配置</li>
+</ul>
+</li>
+<li>免费arp<ul>
+<li>主要是发送自己的ip地址来获得自己的mac地址</li>
+<li>作用<ol>
+<li>系统引导时的更新配置</li>
+<li><strong>检测局域网内是否发生了ip冲突</strong></li>
+<li>更新其他主机的缓存表</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>代理arp<ul>
+<li>主机没有配置网关时，来自路由器的善意欺骗，返回的mac地址是路由器的mac地址</li>
+<li>主要是针对于没有配置网关的电脑实现路由互通</li>
+<li>当主机有网关时，发现目标ip不在同一个网段，会直接封装网关的mac地址</li>
+<li>总结：<strong>代理arp和正常arp主要是使用场景的差别</strong><ul>
+<li>电脑没有网关时，ARP直接询问目标IP对应的MAC地址（跨网段），采用代理ARP；</li>
+<li>电脑有网关时，ARP只需询问网关IP对应的MAC地址（同网段），采用正常ARP；</li>
+<li>无论是正常ARP还是代理ARP，电脑最终都拿到同一个目标MAC地址：网关MAC。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>arp攻击<ul>
+<li>本质是一种欺骗，<strong>中间人攻击</strong>  原则是  <strong>后到优先</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h4><ul>
+<li><p>是什么？</p>
+<ul>
+<li><strong>防火墙</strong>是一种<strong>安全设备</strong>，保护一个网络区域免受另一个网络区域的攻击和入侵，通常被部署在网络边界，例如：企业互联网出口；</li>
+</ul>
+</li>
+<li><p>作用：</p>
+<ul>
+<li><p>基本功能 （狭义的防火墙）</p>
+<p><strong>区域隔离和访问控制</strong> （<strong>访问控制可以产生会话</strong>）           路由器虽然也有基本的功能，但是不够强大</p>
+</li>
+<li><p>扩展功能   （广义的防火墙）</p>
+<p>文件过滤，内容过滤，入侵防御isp  —————–但是这些功能对于防火墙开销比较大</p>
+</li>
+</ul>
+</li>
+<li><p>安全区域：</p>
+<ul>
+<li>通过将防火墙<strong>不同端口</strong>连接不同网络来划分安全区域，提高了隔离性，从而增加了安全性</li>
+<li>默认分类：<ol>
+<li>受信区域                           不需要通过检测</li>
+<li>非受信区域            </li>
+<li>非军事化区域（公共互联网区域）</li>
+<li>本地区域（local）</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>匹配策略：</p>
+<ul>
+<li><p>安全策略由<strong>匹配条件、动作</strong>组成 </p>
+</li>
+<li><p>匹配条件：</p>
+<ul>
+<li>五元组（源地址、目的地址、源端口、目的端口、协议）</li>
+<li>目的安全区域、用户、时间段等</li>
+</ul>
+</li>
+<li><p>动作</p>
+<ul>
+<li>拒绝</li>
+<li>通过</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>会话表</strong></p>
+<ul>
+<li>作用：记录协议连接状态</li>
+<li>理解：比如tcp三次握手连接等情况，如果每次都进行匹配策略以及其他的流程检测，则会大大降低效率，所以通过首包建立会话表来记录连接状态</li>
+<li>会话表老化时间<ul>
+<li>若会话表长时间不匹配，则会占用防火墙资源，所以超过老化时间会自动清理会话表</li>
+<li>但是：<strong>想FTP等协议报文间隔时间较长，则会设置长连接避免会话表被删除</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h4><ul>
+<li>是什么：<ul>
+<li>是一种ip地址转换技术，用于ip地址枯竭问题</li>
+</ul>
+</li>
+<li>作用：<ol>
+<li>节约了ip地址</li>
+<li><strong>提高了安全性</strong>，隐藏了内网地址</li>
+</ol>
+</li>
+<li>分类<ul>
+<li>静态NAT   （内外网ip地址一对一转换，没有解决地址紧缺的问题）</li>
+<li>动态NAT     （通过创建IP地址池，使用时利用池里面的ip地址池进行匹配，一定程度上的缓解紧缺问题）</li>
+<li>NAPT    （利用ip地址和端口进行转换，做到了一对多的形式，解决了地址紧缺问题）</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><h4 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h4><ul>
+<li>作用：<ol>
+<li>汇聚</li>
+<li>隔离冲突域</li>
+<li>寻址和转发</li>
+</ol>
+</li>
+<li>mac表的自学习过程<ul>
+<li>通过将接受的数据帧的端口与源mac地址进行关联</li>
+</ul>
+</li>
+</ul>
+<h4 id="链路聚合"><a href="#链路聚合" class="headerlink" title="链路聚合"></a>链路聚合</h4><ul>
+<li><p>定义理解: 将多条链路聚合为一条逻辑链路。</p>
+</li>
+<li><p>基本概念：</p>
+<ol>
+<li>链路聚合组（LAG）</li>
+<li>Eth-trunk（链路聚合组接口）</li>
+<li>成员接口<ul>
+<li>活动接口<strong>（提供了带宽）</strong></li>
+<li>非活动接口<strong>（提供了冗余可靠性）</strong></li>
+</ul>
+</li>
+<li>成员链路</li>
+</ol>
+</li>
+<li><p>优点：</p>
+<ol>
+<li>增加带宽</li>
+<li>增加可靠性</li>
+<li>负载均衡</li>
+</ol>
+</li>
+<li><p>设备的链路聚合方式：</p>
+<ul>
+<li>同一设备</li>
+<li>堆叠设备</li>
+<li>跨设备（基于LACP模式）</li>
+</ul>
+</li>
+<li><p>聚合模式：</p>
+<ul>
+<li><p>手动聚合： 就是用手工来配置         <strong>（只能解决断路等简单故障）</strong></p>
+<ul>
+<li>全部链路进行流量分发</li>
+</ul>
+</li>
+<li><p>LACP                                                   <strong>（可以动态的解决更多链路故障）</strong></p>
+<ul>
+<li><p>链路聚合控制协议 LACP </p>
+<ul>
+<li>理解：就是动态的维护链路状态</li>
+</ul>
+</li>
+<li><p>优先级：</p>
+<ol>
+<li><p>系统优先级： 因为接口两端要相同，所以以优先级高的为接口标准，优先级低的同步优先级高的接口，以优先级高的为模板</p>
+<p>，数字越大，优先级越小</p>
+</li>
+<li><p>接口优先级：成员接口的优先级越高，优先被选为活动接口。（数值越大，优先级越低）</p>
+</li>
+</ol>
+</li>
+<li><p>M：N备份</p>
+<ul>
+<li>M个活动链路，N个非活动接口</li>
+</ul>
+</li>
+<li><p>实现原理：</p>
+<ul>
+<li>通过交换链路聚合控制协议数据单元LACPDU与对端交互信息，确定聚合端口</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2021/04/10/net3/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2021/04/10/net3/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>

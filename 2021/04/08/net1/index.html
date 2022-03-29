@@ -96,7 +96,7 @@
 	            <a href="#s1">分类</a>
 	                    <ul class="submenu">
 	                        <li>
-	                        <a class="category-link" href="/categories/CloudComputing/">CloudComputing</a></li><li><a class="category-link" href="/categories/Net/">Net</a></li><li><a class="category-link" href="/categories/docker/">docker</a></li><li><a class="category-link" href="/categories/java/">java</a></li><li><a class="category-link" href="/categories/other/">other</a>
+	                        <a class="category-link" href="/categories/CloudComputing/">CloudComputing</a></li><li><a class="category-link" href="/categories/K8s/">K8s</a></li><li><a class="category-link" href="/categories/Net/">Net</a></li><li><a class="category-link" href="/categories/docker/">docker</a></li><li><a class="category-link" href="/categories/java/">java</a></li><li><a class="category-link" href="/categories/other/">other</a>
 	                    </ul>
 	        </li>
 	        
@@ -252,13 +252,20 @@
 </li>
 <li><p>区域</p>
 <ul>
-<li>划分区域的意义<ul>
+<li><p>划分区域的意义</p>
+<ul>
 <li>降低了路由计算的频率的频率</li>
 <li>减少了路由表</li>
 <li>减小了链路状态更新报文（LSU）的流量</li>
 </ul>
 </li>
-<li>区域内的DR，BDR<ul>
+<li><p>区域内的DR，BDR</p>
+<ul>
+<li><p>选举后的洪范地址</p>
+<p><strong>DR&#x2F;BDR</strong>的发送的OSPF包的目标地址为<strong>224.0.0.5</strong>;而除了DR&#x2F;BDR以外的OSPF包的目标地址为<strong>224.0.0.6</strong></p>
+</li>
+</ul>
+<ul>
 <li>通过内部选举出DR，BDR，让非dr&#x2F;bdr的路由器和其进行建立邻接关系，从而减小了网络的开销</li>
 <li>选举规则：<ul>
 <li>手动选举：首先根据优先级大的为dr（路由器默认为1，为0 的不能作为DR&#x2F;BDR）相同优先级的情况下比较  router-id</li>
@@ -267,7 +274,8 @@
 </li>
 </ul>
 </li>
-<li>区域的划分：<ul>
+<li><p>区域的划分：</p>
+<ul>
 <li>骨干区域</li>
 <li>标准区域</li>
 <li>末梢区域<ul>
