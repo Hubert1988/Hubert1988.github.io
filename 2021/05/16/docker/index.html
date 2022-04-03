@@ -128,11 +128,11 @@
 
         <div id="main" >
             <div class ="post_page_title_img" style="height: 25rem;background-image: url(img/docker/bg.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Docker-概述</h2></a>
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Docker</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+                <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
 <li><p>是什么</p>
 <p>是一款容器引擎，是一个用于开发，交付和运行应用程序的开放平台 </p>
 </li>
@@ -148,6 +148,14 @@
 <li><p>是什么？</p>
 <ul>
 <li>是一个软件包，该包打包好运行环境，是创造容器的一个模板。是rootfs</li>
+</ul>
+</li>
+<li><p>特性：</p>
+<ul>
+<li><strong>强一致性</strong><ul>
+<li>因为镜像包含了rootfs，而rootfs是包含了操作系统的文件和目录，所以docker容器从底层文件解决了环境的依赖，从而达到一次构建，到处运行的目的</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>特点</p>
@@ -229,34 +237,26 @@
 </li>
 </ul>
 <h2 id="浅析原理"><a href="#浅析原理" class="headerlink" title="浅析原理"></a>浅析原理</h2><ul>
-<li><p><strong>容器的本质是一种特殊的进程</strong> </p>
-</li>
-<li><p><strong>容器本身没有价值，有价值的是“容器编排</strong> ，容器本身是一个底层技术，解决了应用打包这个问题，但是技术要落地到应用，要落地到Pass平台，所以如何利用容器进行商业化的应用才是真正的价值。</p>
-</li>
-<li><p>容器的<strong>隔离</strong>和<strong>资源限制</strong>实现</p>
-<ol>
-<li><p>namespace</p>
-<ul>
-<li><p>理解：</p>
-<ul>
+<li><strong>容器的本质是一种特殊的进程</strong> </li>
+<li><strong>容器本身没有价值，有价值的是“容器编排</strong> ，容器本身是一个底层技术，解决了应用打包这个问题，但是技术要落地到应用，要落地到Pass平台，所以如何利用容器进行商业化的应用才是真正的价值。</li>
+<li>容器的<strong>隔离</strong>和<strong>资源限制</strong>实现<ol>
+<li>namespace<ul>
+<li>理解：<ul>
 <li>相当于一个障眼法，利用linux的namespace机制实现隔离，而一个个docker实际上是一个个特殊的进程</li>
 <li><strong>Namespace 技术实际上修改了应用进程看待整个计算机“视 图”，即它的“视线”被操作系统做了限制，只能“看到”某些指定的内容。但对于宿主机来 说，这些被“隔离”了的进程跟其他进程并没有太大区别。</strong></li>
 </ul>
 </li>
-<li><p>分类</p>
-<ul>
+<li>分类<ul>
 <li>namespace的实现有很多类，比如PID，mount，network等方式（但是 Mount Namespace 跟其他 Namespace 的使用略有不同的地方：它对容器进程视图的 改变，一定是伴随着挂载操作（mount）才能生效。 ）</li>
 </ul>
 </li>
-<li><p>namespace的位置</p>
-<ul>
+<li>namespace的位置<ul>
 <li>尽管改变了进程的视图，但是在OS上确是实际存在，在namespace就映射在 &#x2F;proc&#x2F;PID&#x2F;ns中，在该文件夹中存储了容器namespace所有的映射，<strong>而这也是docker excec能进入一个容器的原因</strong>（本质上是一个进程加入另一个进程，而进入docker这进程实际上是加入docker的namespace）</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>cgroups</p>
-<ul>
+<li>cgroups<ul>
 <li>概念<ul>
 <li>Linux Cgroups 的全称是 Linux Control Group。它最主要的作用，就是限制一个进程组能够 使用的资源上限，包括 CPU、内存、磁盘、网络带宽等等。</li>
 </ul>
@@ -270,8 +270,7 @@
 </li>
 </ol>
 </li>
-<li><p>容器的安全问题</p>
-<ul>
+<li>容器的安全问题<ul>
 <li>在生产环境中，没有人敢把运行在物理机上的 Linux 容器直接暴露到公网上。因为本质来讲就是一个进程，公用同一个内核，所以安全性不高。</li>
 </ul>
 </li>
@@ -298,19 +297,13 @@
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;容器 ID&gt;  /bin/bash</span><br></pre></td></tr></table></figure>
 </blockquote>
-</li>
-<li><p>相关信息总结</p>
-</li>
-<li><p><strong>CONTAINER ID:</strong> 容器 ID。</p>
-</li>
-<li><p><strong>IMAGE:</strong> 使用的镜像。</p>
-</li>
-<li><p><strong>COMMAND:</strong> 启动容器时运行的命令。</p>
-</li>
-<li><p><strong>CREATED:</strong> 容器的创建时间。</p>
-</li>
-<li><p><strong>STATUS:</strong> 容器状态。</p>
 <ul>
+<li>相关信息总结<ul>
+<li><strong>CONTAINER ID:</strong> 容器 ID。</li>
+<li><strong>IMAGE:</strong> 使用的镜像。</li>
+<li><strong>COMMAND:</strong> 启动容器时运行的命令。</li>
+<li><strong>CREATED:</strong> 容器的创建时间。</li>
+<li><strong>STATUS:</strong> 容器状态。<ul>
 <li>状态有7种：<ul>
 <li>created（已创建）</li>
 <li>restarting（重启中）</li>
@@ -323,14 +316,11 @@
 </li>
 </ul>
 </li>
-<li><p><strong>PORTS:</strong> 容器的端口信息和使用的连接类型（tcp\udp）。</p>
+<li><strong>PORTS:</strong> 容器的端口信息和使用的连接类型（tcp\udp）。</li>
+<li><strong>NAMES:</strong> 自动分配的容器名称。</li>
+</ul>
 </li>
-<li><p><strong>NAMES:</strong> 自动分配的容器名称。</p>
-</li>
-<li><p><strong>PORTS:</strong> 容器的端口信息和使用的连接类型（tcp\udp）。</p>
-</li>
-<li><p><strong>NAMES:</strong> 自动分配的容器名称。<br><strong>PORTS:</strong> 容器的端口信息和使用的连接类型（tcp\udp）。</p>
-<p><strong>NAMES:</strong> 自动分配的容器名称。</p>
+</ul>
 </li>
 <li><p>docker export    导出容器</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker export 1e560fca3906 &gt; ubuntu.tar</span><br></pre></td></tr></table></figure>
