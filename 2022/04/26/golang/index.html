@@ -165,6 +165,8 @@
 </li>
 </ul>
 </li>
+<li><p>分类标准一</p>
+<ul>
 <li><p>布尔型</p>
 </li>
 <li><p>数值型</p>
@@ -207,6 +209,20 @@
 <li>(f) 切片类型</li>
 <li>(g) 接口类型（interface）</li>
 <li>(h) Map 类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>分类标准二：</p>
+<ul>
+<li>非引用类型：<ul>
+<li>包含int、float、bool、string、struct、数组</li>
+</ul>
+</li>
+<li>引用类型<ul>
+<li>map、slice、channel、interface</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -320,7 +336,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="派生类型"><a href="#派生类型" class="headerlink" title="派生类型"></a>派生类型</h3><h4 id="数据类型集合"><a href="#数据类型集合" class="headerlink" title="数据类型集合"></a>数据类型集合</h4><h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><ul>
+<h3 id="数据类型集合"><a href="#数据类型集合" class="headerlink" title="数据类型集合"></a>数据类型集合</h3><h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><ul>
 <li><p>是什么？</p>
 <ul>
 <li>是一种数据结构</li>
@@ -436,7 +452,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h4><ul>
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><ul>
 <li><p>是什么</p>
 <ul>
 <li>本质上也是一个变量，只不过存储变量的地址值，<strong>一个指针变量指向了一个值的内存地址。</strong></li>
@@ -461,7 +477,7 @@
 <li><p>指针的指针</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="type">int</span></span><br><span class="line">   <span class="keyword">var</span> ptr *<span class="type">int</span></span><br><span class="line">   <span class="keyword">var</span> pptr **<span class="type">int</span></span><br><span class="line"></span><br><span class="line">   a = <span class="number">3000</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 指针 ptr 地址 */</span></span><br><span class="line">   ptr = &amp;a</span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 指向指针 ptr 地址 */</span></span><br><span class="line">   pptr = &amp;ptr</span><br><span class="line"></span><br><span class="line">   <span class="comment">/* 获取 pptr 的值 */</span></span><br><span class="line">   fmt.Printf(<span class="string">&quot;变量 a = %d\n&quot;</span>, a )</span><br><span class="line">   fmt.Printf(<span class="string">&quot;指针变量 *ptr = %d\n&quot;</span>, *ptr )</span><br><span class="line">   fmt.Printf(<span class="string">&quot;指向指针的指针变量 **pptr = %d\n&quot;</span>, **pptr)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
 <li><h5 id="Go语言里面拥三种类型的函数："><a href="#Go语言里面拥三种类型的函数：" class="headerlink" title="Go语言里面拥三种类型的函数："></a>Go语言里面拥三种类型的函数：</h5><ul>
 <li>普通的带有名字的函数</li>
 <li>匿名函数或者 lambda 函数(<strong>闭包</strong>)</li>
@@ -560,19 +576,16 @@
 </li>
 <li><p>首先说结论：</p>
 <ul>
-<li><p>在Go语言里，所有的</p>
-<ul>
-<li>非引用类型参数传递都是值传递(传值)，都是一个副本，一个拷贝，因为拷贝的内容有时候是非引用类型（int、string、struct等这些），这样就在函数中就无法修改原内容数据；</li>
+<li>在Go语言里，<strong>go 语言中所有东西都是以值进行传递的，没有引用传递</strong> <ul>
+<li>非引用类型（int、string、struct等这些），这样就在函数中就无法修改原内容数据；</li>
 <li>有的是引用类型（指针、map、slice、chan等这些），这样就可以修改原内容数据。</li>
 </ul>
 </li>
-<li><p>非引用类型（值类型）：int，float，bool，string，以及数组和struct</p>
-<ul>
+<li>非引用类型（值类型）：int，float，bool，string，以及<strong>数组</strong>和<strong>struct</strong><ul>
 <li>特点：变量直接存储值，内存通常在栈中分配，栈在函数调用完会被释放</li>
 </ul>
 </li>
-<li><p>引用类型：指针，slice，map，chan，接口，函数等</p>
-<ul>
+<li>引用类型：指针，slice，map，chan，接口，函数等<ul>
 <li>特点：变量存储的是一个地址，这个地址存储最终的值。内存通常在堆上分配，当没有任何变量引用这个地址时，该地址对应的数据空间就成为一个垃圾，通过GC回收</li>
 </ul>
 </li>
@@ -593,7 +606,7 @@
 </ol>
 </li>
 </ul>
-<h4 id="面对对象"><a href="#面对对象" class="headerlink" title="面对对象"></a>面对对象</h4><h5 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h5><ul>
+<h3 id="面对对象"><a href="#面对对象" class="headerlink" title="面对对象"></a>面对对象</h3><h5 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h5><ul>
 <li><p>是什么</p>
 <ul>
 <li>结构体是由一系列具有相同类型或不同类型的数据构成的数据集合。 （<strong>就是类似于java中的一个类</strong>）</li>
@@ -615,7 +628,73 @@
 </ul>
 </li>
 </ul>
-<h5 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h5>
+<h5 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h5><ul>
+<li>是什么<ul>
+<li>类比java，一个接口是一组方法集合</li>
+<li>如果一个类型包含了一个接口声明的所有方法，那么这个类型就<strong>隐式地实现</strong>了这个接口。 <ul>
+<li>如何理解为隐式实现<ul>
+<li>只要实现接口内的全部方法即可，而和接口名称没有任何关系，是基于方法的实现，和传统的OOP接口实现不同，耦合性很小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>理解<ul>
+<li>golang中的接口是golang实现多态的方式，而java是基于继承的方式，我们可以类比java，golang中的接口就是java中的父类，而实现接口的结构体相当于子类，最终的结果就是父类中的引用指向子类的对象（接口的引用指向实现接口的结构体）</li>
+<li>无论是java中的继承还是golang中的接口，多态的实现的本质都是方法的重写</li>
+</ul>
+</li>
+<li>应用场景<ol>
+<li>类似于usb的例子，电脑有usb接口，如果其他外设想要连接电脑，只要实现usb即可</li>
+<li>在开发中，可以利用接口定义好方法，然后分层来实现，用于开发流程</li>
+</ol>
+</li>
+<li>注意事项<ol>
+<li>接口本身不可以实例化，但是可以指向实现了接口的结构体变量</li>
+<li>不仅仅是结构体可以实现接口，任何自定义变量都可以实现接口</li>
+<li>接口之间也可以使用继承来增加复用性</li>
+</ol>
+</li>
+</ul>
+<h5 id="三大特性"><a href="#三大特性" class="headerlink" title="三大特性"></a>三大特性</h5><ul>
+<li><p>封装</p>
+<ul>
+<li>没有java那么明显，仅仅是首字母大小写来规定包内和包外的限制</li>
+</ul>
+</li>
+<li><p>继承</p>
+<ul>
+<li>本质上就是代码复用，而golang是通过匿名结构体嵌套实现</li>
+</ul>
+</li>
+<li><p>多态（向上转型）</p>
+<ul>
+<li><p>具有多种状态</p>
+<ul>
+<li>思想和java差不多，基本都是啥接口变量可以指向实现响应接口的结构体</li>
+</ul>
+</li>
+<li><p>类型断言（向下转型）</p>
+<ul>
+<li><p>背景：</p>
+<ul>
+<li><p>利用多态调用方法时，只能调用接口声明的方法，但是要想执行具体结构体特殊的方法（实际上就是java中的向下转型，将父类转为子类，从而可以使用子类的特殊方法）就得用到类型断言</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a是接口变量</span><br><span class="line">b是结构体变量</span><br><span class="line">b = a.（结构体类型）</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>转换错误处理</p>
+<ul>
+<li><p>因为接口变量转型得是原来的数据类型，所以为了防止panic，使用标志位进行接收判断</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a, flag = b.(<span class="type">int8</span>)</span><br><span class="line"><span class="keyword">if</span>(flag == <span class="literal">true</span>)&#123;    <span class="comment">//转换成功</span></span><br><span class="line">    </span><br><span class="line">&#125;<span class="keyword">else</span>&#123;              <span class="comment">//转换失败</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
             </div>
 
             <!-- Post Comments -->
